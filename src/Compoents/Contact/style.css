@@ -1,0 +1,41 @@
+.footer__com {
+  border: 2px dotted rgb(18, 84, 206) !important;
+  box-shadow: 0 10px 30px -15px rgb(2 12 27 / 70%);
+}
+.email-link {
+  background-color: transparent;
+  padding: 1.25rem 1.75rem;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 50px;
+  border: 2px dashed #ffadad;
+  color: #ffadad;
+}
+.email-link:hover {
+  transition: var(--transition);
+  border: 2px dashed #39a2db;
+}
+.footer__f {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  min-height: 70px;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.github-stats a:hover {
+  border: 2px dotted #39a2db;
+  box-shadow: 0 10px 30px -15px rgb(2 12 27 / 70%);
+  transition: var(--transition);
+}
+.github-stats a svg {
+  width: 20px;
+  height: 20px;
+}
