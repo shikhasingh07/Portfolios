@@ -84,9 +84,6 @@ a {
   .nav__bar span {
     margin-left: 1.5rem !important;
   }
-  .header___NavBar {
-    padding: 0.5rem;
-  }
 }
 @media (max-width: 490px) {
   .header___NavBar {
@@ -94,5 +91,10 @@ a {
   }
   .nav__bar span {
     margin: 0 !important;
+  }
+}
+@media (max-width: 700px) {
+  .header___NavBar {
+    padding: 0 !important;
   }
 }

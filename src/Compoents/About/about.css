@@ -343,17 +343,7 @@ a {
   -webkit-writing-mode: vertical-rl;
   writing-mode: vertical-rl;
 }
-@media (max-width: 1080px) {
-  .hOvuuP {
-    display: none;
-  }
-  .jSIwrL {
-    display: none;
-  }
-  .light__bowl {
-    display: none;
-  }
-}
+
 li a svg {
   width: 20px;
   height: 20px;
@@ -382,4 +372,21 @@ ul.skills-list li::before {
   color: #38a3a5;
   font-size: 14px;
   line-height: 12px;
+}
+@media (max-width: 1080px) {
+  .hOvuuP {
+    display: none;
+  }
+  .jSIwrL {
+    display: none;
+  }
+  .light__bowl {
+    display: none;
+  }
+}
+@media (max-width: 590px) {
+  .light__bowl {
+    display: block;
+    right: 15px;
+  }
 }
