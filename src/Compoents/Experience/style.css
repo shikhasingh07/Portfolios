@@ -92,3 +92,8 @@ section {
 .data__main {
   border: 2px dotted rgb(18, 84, 206) !important;
 }
+@media (max-width: 968px) {
+  .tab__list {
+    display: none !important;
+  }
+}

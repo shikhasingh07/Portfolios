@@ -76,7 +76,23 @@ a {
   .nav__essentails {
     width: 100% !important;
   }
+}
+@media (max-width: 590px) {
   .btn__resume {
     display: none !important;
+  }
+  .nav__bar span {
+    margin-left: 1.5rem !important;
+  }
+  .header___NavBar {
+    padding: 0.5rem;
+  }
+}
+@media (max-width: 490px) {
+  .header___NavBar {
+    padding: 0 !important;
+  }
+  .nav__bar span {
+    margin: 0 !important;
   }
 }
