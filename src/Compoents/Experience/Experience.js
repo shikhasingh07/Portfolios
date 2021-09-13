@@ -17,8 +17,8 @@ const items = [{
   date: "Jan 5 2020 - June 30",
   company: "Altran (part of capgemini)",
   About: [
-    'I was recruited at Altra in India, Gurugram campus placements at Amity University.'
-    , 'I bagged an Internship and full-time employment with them as a web dev intern.',
+    'I was recruited at Altra in India, Noida campus placements at Amity University.'
+    , 'I bagged an Internship and full-time employment with them as a Junior c and Java intern.',
     'Write some assignments with java and manage to complete'
   ]
 }]
