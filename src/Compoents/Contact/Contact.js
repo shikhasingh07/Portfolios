@@ -17,7 +17,7 @@ const Contact = () => {
           <div className="footer__com p-3">
             <h2 className="title pheading p-0 m-0">Get In Touch</h2>
             <p className='pheading'>
-              Although I’m not currently looking for any new opportunities, my
+              Although I’m always looking for any new opportunities, my
               inbox is always open. Whether you have a question or just want to
               say hi, I’ll try my best to get back to you!
             </p>
