@@ -92,9 +92,9 @@ const About = () => {
       <main>
         <section className="section__mainCon " id="data__mainScreen">
           <div className="m-auto main__con pt-2">
-            <p className="heading__para mt-5">Hi, my name is</p>
-            <h3 className="heading__h">Shikha Singh</h3>
-            <h3 className="heading__h">
+            <p className="heading__para mt-5 p-0">Hi, my name is</p>
+            <h3 className="heading__h p-0 m-0">Shikha Singh</h3>
+            <h3 className="heading__h p-0 m-0 typeing__head">
               {" "}
               <Typewriter
                 onInit={(typewriter) => {
@@ -113,8 +113,8 @@ const About = () => {
                 }}
               />
             </h3>
-            <div className="fadeup-enter-done">
-              <p className="pheading">
+            <div className="fadeup-enter-done m-0 p-0">
+              <p className="pheading ">
                 I’m a software engineer specializing in building (and
                 occasionally designing) exceptional digital experiences.
                 Currently, I’m focused on building accessible, human-centered
@@ -151,10 +151,10 @@ const About = () => {
         <Reveal up>
           <section className="m-auto section__mainCon" id="main__about">
             <div className="section__about m-auto ">
-              <h2 className="numbered-heading about__heading">About Me</h2>
+              <h2 className="numbered-heading about__heading ">About Me</h2>
               <div className="inner">
-                <div className="about__StyledText-sc-1ownso9-1 kNIdQM">
-                  <div className="paaraa___heading">
+                <div className=" kNIdQM">
+                  <div className="paaraa___heading ">
                     <p>
                       Hello! My name is Shikha . My interest in web development
                       started back in 2021 .Now i am Software engineer for 1.6

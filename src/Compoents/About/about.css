@@ -226,9 +226,10 @@ a {
     #39a2db,
     #ffe194
   );
-  font-size: 40px;
+  font-size: 60px;
   -webkit-background-clip: text;
   background-clip: text;
+  width: 500px;
   -webkit-text-fill-color: transparent;
   /* Set thee background size and repeat properties. */
   background-size: 57%;
@@ -242,7 +243,7 @@ a {
 }
 @keyframes rainbow-text-animation {
   0% {
-    background-size: 57%;
+    background-size: 7%;
     background-position: 0 0;
   }
   20% {
@@ -390,4 +391,8 @@ ul.skills-list li::before {
   .jJFfEJ::before {
     height: 107px;
   }
+}
+.typeing__head {
+  font-size: 60px !important;
+  width: 100%;
 }
