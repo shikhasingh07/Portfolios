@@ -393,6 +393,7 @@ ul.skills-list li::before {
   }
 }
 .typeing__head {
-  font-size: 60px !important;
+  font-size: 50px !important;
+  height: 100px;
   width: 100%;
 }
