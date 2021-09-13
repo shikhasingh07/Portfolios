@@ -382,7 +382,7 @@ ul.skills-list li::before {
   .light__bowl {
     display: block;
     right: 15px;
-    z-index: 11;
+    z-index: 1;
   }
   .heading__para:after {
     display: none !important;
