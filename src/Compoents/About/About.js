@@ -100,13 +100,13 @@ const About = () => {
                 onInit={(typewriter) => {
                   typewriter
                     .typeString("I build things for the web.")
-                    .pauseFor(1000)
+                    .pauseFor(2000)
                     .deleteAll()
                     .typeString("Front End Developer")
-                    .pauseFor(1000)
+                    .pauseFor(2000)
                     .deleteAll()
                     .typeString("Software Developer")
-                    .pauseFor(1000)
+                    .pauseFor(2000)
                     .deleteAll()
                     .typeString("Programmer")
                     .start();

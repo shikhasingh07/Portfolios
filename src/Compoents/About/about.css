@@ -338,9 +338,7 @@ a {
 .jJFfEJ a {
   margin: 0px auto;
   padding: 10px;
-  font-family: var(--font-mono);
-  font-size: var(--fz-xxs);
-  line-height: var(--fz-lg);
+  color: #6fc9f4;
   letter-spacing: 0.1em;
   -webkit-writing-mode: vertical-rl;
   writing-mode: vertical-rl;
