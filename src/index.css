@@ -17,3 +17,37 @@ body {
   left: 0;
   z-index: -1;
 }
+.jSIwrL {
+  width: 40px;
+  position: fixed;
+  top: 0px;
+  left: auto;
+  right: 40px;
+  z-index: 15;
+  border: 2px dashed #38a3a5;
+  cursor: pointer;
+}
+.light__bowl {
+  width: 40px;
+  position: fixed;
+  top: 0px;
+  left: auto;
+  right: 100px;
+  z-index: 15;
+  border: 2px dashed #38a3a5;
+  cursor: pointer;
+}
+.light {
+  background-color: white;
+  color: black;
+}
+.dark {
+  background-color: black;
+  color: white;
+}
+.light__text {
+  color: #122222;
+}
+.dark__text {
+  color: white;
+}

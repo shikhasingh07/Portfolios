@@ -316,17 +316,9 @@ a {
   height: 90px;
   margin: 0px auto;
   height: 340px;
-  border: 2px dashed #38a3a5;
+  border: 2px dashed #d7e9f7;
 }
-.jSIwrL {
-  width: 40px;
-  position: fixed;
-  top: 0px;
-  left: auto;
-  right: 40px;
-  z-index: 10;
-  border: 2px dashed #38a3a5;
-}
+
 .jJFfEJ {
   display: flex;
   flex-direction: column;
@@ -340,7 +332,7 @@ a {
   width: 1px;
   height: 90px;
   margin: 0px auto;
-  border: 2px dashed #38a3a5;
+  border: 2px dashed #d7e9f7;
 }
 
 .jJFfEJ a {
@@ -360,8 +352,36 @@ a {
   .jSIwrL {
     display: none;
   }
+  .light__bowl {
+    display: none;
+  }
 }
 li a svg {
   width: 20px;
   height: 20px;
+}
+ul.skills-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(140px, 200px));
+  gap: 0px 10px;
+  padding: 0px;
+  margin: 20px 0px 0px;
+  overflow: hidden;
+  list-style: none;
+}
+ul.skills-list li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+ul.skills-list li::before {
+  content: "▹";
+  position: absolute;
+  left: 0px;
+  color: #38a3a5;
+  font-size: 14px;
+  line-height: 12px;
 }
