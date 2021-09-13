@@ -114,7 +114,7 @@ const About = () => {
               />
             </h3>
             <div className="fadeup-enter-done m-0 p-0">
-              <p className="pheading ">
+              <p className="pheading mt-2">
                 I’m a software engineer specializing in building (and
                 occasionally designing) exceptional digital experiences.
                 Currently, I’m focused on building accessible, human-centered
