@@ -1,22 +1,23 @@
-import Main from './Compoents/Main/Main';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Particles from 'react-particles-js';
 import particlesConfig from './Particles';
 import React from "react";
 import { HashRouter } from "react-router-dom"
 import { useState } from "react";
-// const Lazyprofile = React.lazy(() => import("../About/About"));
+const Lazyprofile = React.lazy(() => import("./Compoents/Main/Main"));
 function App() {
   const [light, setLight] = useState(false);
   return (
-    // <React.Suspense fallback={logo}>
+
     <>
       <HashRouter>
         <div className={light === false ? "light" : "dark"} style={{ position: 'relative', overflow: "hidden" }}>
           <div style={{ position: 'fixed' }}>
             <Particles height="100vh" width="100vw" params={particlesConfig} />
           </div>
-          <Main />
+          <React.Suspense fallback={"Loading Please Wait"}>
+            <Lazyprofile />
+          </React.Suspense>
         </div>
       </HashRouter>
       <div
@@ -36,8 +37,8 @@ function App() {
           Off
         </div>}
       </div>
-      {/* // </React.Suspense> */}
     </>
+
   );
 }
 
