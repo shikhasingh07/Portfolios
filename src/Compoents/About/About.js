@@ -124,7 +124,7 @@ const About = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <p className='text-success p-0 m-0'>@Altran(part of Capgemini)</p>
+                  <p className='text-success p-0 m-0'> @Altran(part of Capgemini)</p>
                 </a>
                 .
               </p>
