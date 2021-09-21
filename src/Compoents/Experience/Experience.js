@@ -5,7 +5,7 @@ const items = [{
   id: 1,
   name: "Front End Engineer",
   company: "Altran (part of capgemini)",
-  date: "oct 8 2020 - Present",
+  date: "Oct 8 2020 - Present",
   About: [
     'Part of the SETEL team, responsible for developing the website, development in auth and functions for internals',
     'Write modern, performant, maintainable code for a diverse array of client and internal projects'
@@ -14,7 +14,7 @@ const items = [{
 }, {
   id: 2,
   name: "Intern",
-  date: "Jan 5 2020 - June 30",
+  date: "Jan 5 2020 - June 30 2020",
   company: "Altran (part of capgemini)",
   About: [
     'I was recruited at Altran in India, Noida campus placements at Amity University(30th Aug).'
