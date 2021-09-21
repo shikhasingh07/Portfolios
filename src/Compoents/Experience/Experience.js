@@ -56,7 +56,7 @@ const Experience = () => {
                       target="_blank"
                       className='ms-2'
                     >
-                      <p className='text-success'>@Altran(part of Capgemini)</p>
+                      <p className='text-success p-0 m-0'>@Altran(part of Capgemini)</p>
                     </a>
                   </div>
                   <p className='p-0 m-0 d-flex justify-content-start headData'>oct 8 2020 - Present</p>
@@ -76,7 +76,7 @@ const Experience = () => {
                         target="_blank"
                         className='ms-2'
                       >
-                        @{e.company}
+                        <p className='text-success  p-0 m-0'>@{e.company}</p>
                       </a>
                     </div>
                     <p className='p-0 m-0 d-flex justify-content-start headData' >{e.date}</p>

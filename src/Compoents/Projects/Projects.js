@@ -38,7 +38,7 @@ const Projects = () => {
                     <p className="project-overline m-0 p-0 ">Featured Project</p>
                     <h3 className="project-title">{e.projectTitle}</h3>
                     <div className="project-description">
-                      <p>{e.projectSummary}</p>
+                      <p className='text-success p-0 m-0'>{e.projectSummary}</p>
                     </div>
                     <ul className="tech__used">
                       {e.Tech.map((e, i) => {

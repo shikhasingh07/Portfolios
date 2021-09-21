@@ -118,13 +118,13 @@ const About = () => {
                 I’m a software engineer specializing in building (and
                 occasionally designing) exceptional digital experiences.
                 Currently, I’m focused on building accessible, human-centered
-                products at{" "}
+                products at
                 <a
                   href="https://capgemini-engineering.com/in/en/"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Altran <span>Part of capegemini</span>
+                  <p className='text-success p-0 m-0'>@Altran(part of Capgemini)</p>
                 </a>
                 .
               </p>
@@ -156,7 +156,7 @@ const About = () => {
                 <div className=" kNIdQM">
                   <div className="paaraa___heading ">
                     <p>
-                      Hello! My name is Shikha . My interest in web development
+                      Hello! My name is Shikha . My interest in Software development
                       started back in 2020 .Now i am Software engineer for 1.6
                       year working as a Software Developer in the recent company,
                       designing and transforming layout in the actual part of a
@@ -170,7 +170,7 @@ const About = () => {
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        Altran(part of Capgemini)
+                        <p className='text-success p-0 m-0'>@Altran(part of Capgemini)</p>
                       </a>
                     </p>
                     <p>
