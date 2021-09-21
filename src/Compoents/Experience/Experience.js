@@ -7,9 +7,9 @@ const items = [{
   company: "Altran (part of capgemini)",
   date: "oct 8 2020 - Present",
   About: [
-    'Part of the SETEL implementation project, responsible for developing the new Layout and function for client requirements ',
+    'Part of the SETEL team, responsible for developing the website, development in auth and functions for internals',
     'Write modern, performant, maintainable code for a diverse array of client and internal projects'
-    , 'Making functional components with React Hooks, Styling Libries, frameworks, and content management systems such as JS,TS,React Hooks,Jest,'
+    , 'Making functional components with React Hook, Styling Libraries(Material UI, Bootstrap, etc..), Include Typescript, and Test cases from Jest, Mocha'
   ]
 }, {
   id: 2,
@@ -17,9 +17,10 @@ const items = [{
   date: "Jan 5 2020 - June 30",
   company: "Altran (part of capgemini)",
   About: [
-    'I was recruited at Altran in india, Noida campus placements at Amity University.'
-    , 'I bagged an Internship and full-time employment with them as a Junior c and Java intern.',
-    'Write some assignments with java and manage to complete'
+    'I was recruited at Altran in India, Noida campus placements at Amity University(30th Aug).'
+    , 'I bagged an Internship and full-time employment with them as a Java intern.',
+    'Write some assignments with java and manage to complete',
+    'Fixing Bugs  Review Code  Documented and much more'
   ]
 }]
 const Experience = () => {
