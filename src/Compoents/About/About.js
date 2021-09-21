@@ -158,7 +158,7 @@ const About = () => {
                     <p>
                       Hello! My name is Shikha . My interest in web development
                       started back in 2020 .Now i am Software engineer for 1.6
-                      year working as a front developer in the recent company,
+                      year working as a Software Developer in the recent company,
                       designing and transforming layout in the actual part of a
                       working website.
                     </p>
