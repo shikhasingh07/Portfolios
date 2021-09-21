@@ -56,7 +56,7 @@ const Experience = () => {
                       target="_blank"
                       className='ms-2'
                     >
-                      @Altran(part of Capgemini)
+                      <p className='text-success'>@Altran(part of Capgemini)</p>
                     </a>
                   </div>
                   <p className='p-0 m-0 d-flex justify-content-start headData'>oct 8 2020 - Present</p>
