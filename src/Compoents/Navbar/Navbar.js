@@ -59,10 +59,12 @@ const Navbar = () => {
                   </HashLink>
                 </span>
                 <button className="btn  btn__resume">
-                  <a href="https://drive.google.com/file/d/1qkW28AjLDI7ZLVWRgqLBBkizhP5DSBdm/view?usp=sharing">
-                    {" "}
-                    Resume
-                  </a>
+                  <HashLink>
+                    <a href="https://drive.google.com/file/d/1QYtalXchubUKhPK9UKarMnTQ0EC89daT/view?usp=sharing">
+                      {" "}
+                      Resume
+                    </a>
+                  </HashLink>
                 </button>
               </div>
             </div>
