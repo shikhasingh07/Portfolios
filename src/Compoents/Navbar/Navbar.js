@@ -60,7 +60,7 @@ const Navbar = () => {
                 </span>
                 <button className="btn  btn__resume">
                   <HashLink>
-                    <a href="https://drive.google.com/file/d/1QYtalXchubUKhPK9UKarMnTQ0EC89daT/view?usp=sharing">
+                    <a href="https://drive.google.com/file/d/1QYtalXchubUKhPK9UKarMnTQ0EC89daT/view?usp=sharing" target="_blank" rel="noreferrer">
                       {" "}
                       Resume
                     </a>
