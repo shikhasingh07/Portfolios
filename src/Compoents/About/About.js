@@ -157,8 +157,8 @@ const About = () => {
                   <div className="paaraa___heading ">
                     <p>
                       Hello! My name is Shikha . My interest in Software development
-                      started back in 2020 .Now i am Software engineer for 1.6
-                      year working as a Software Developer in the recent company,
+                      started back in 2019 .Now i am Software engineer for 1.10
+                      year working as a Software Developer/Analyst in the recent company,
                       designing and transforming layout in the actual part of a
                       working website.
                     </p>
@@ -182,9 +182,6 @@ const About = () => {
                       <li>React</li>
                       <li>Redux</li>
                       <li>Styling Libries</li>
-                      <li>Node.js</li>
-                      <li>Express</li>
-                      <li>MongoDB</li>
                       <li>Jest</li>
                     </ul>
                   </div>
