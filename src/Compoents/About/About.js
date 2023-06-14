@@ -120,11 +120,11 @@ const About = () => {
                 Currently, I’m focused on building accessible, human-centered
                 products at
                 <a
-                  href="https://capgemini-engineering.com/in/en/"
+                  href="https://india.target.com/"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <p className='text-success p-0 m-0'> @Altran(part of Capgemini)</p>
+                  <p className='text-success p-0 m-0'>Target</p>
                 </a>
                 .
               </p>
@@ -157,8 +157,8 @@ const About = () => {
                   <div className="paaraa___heading ">
                     <p>
                       Hello! My name is Shikha . My interest in Software development
-                      started back in 2019 .Now i am Software engineer for 1.10
-                      year working as a Software Developer/Analyst in the recent company,
+                      started back in 2019 .Now i am Software engineer for 3.10
+                      year working as a Engineer in the recent company,
                       designing and transforming layout in the actual part of a
                       working website.
                     </p>
@@ -166,11 +166,11 @@ const About = () => {
                       Fast-forward to today, and I’ve had the privilege of
                       working at{" "}
                       <a
-                        href="https://capgemini-engineering.com/in/en/"
+                        href="https://india.target.com/"
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        <p className='text-success p-0 m-0'>@Altran(part of Capgemini)</p>
+                        <p className='text-success p-0 m-0'>Target</p>
                       </a>
                     </p>
                     <p>
