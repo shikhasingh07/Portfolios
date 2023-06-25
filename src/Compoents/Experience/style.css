@@ -10,7 +10,6 @@
 }
 section {
   margin: 0px auto;
-  padding: 50px 0px;
   max-width: 1000px;
 }
 .container__expience {
@@ -24,11 +23,11 @@ section {
   position: relative;
   z-index: 3;
   width: max-content;
-  padding: 0px;
+  padding: 12px;
   margin: 0px;
   list-style: none;
   border-left: 3px solid #d7d8ec;
-  height: 76px;
+  height: 106px;
   cursor: pointer;
 }
 .btn__tablist {

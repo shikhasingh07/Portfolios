@@ -106,9 +106,6 @@ const About = () => {
                     .pauseFor(2000)
                     .deleteAll()
                     .typeString("Software Developer")
-                    .pauseFor(2000)
-                    .deleteAll()
-                    .typeString("Programmer")
                     .start();
                 }}
               />
@@ -124,7 +121,7 @@ const About = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <p className='text-success p-0 m-0'>Target</p>
+                  <p className='text-success p-0 m-0'> @Target</p>
                 </a>
                 .
               </p>
