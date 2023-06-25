@@ -24,10 +24,10 @@ const items = [{
     date: "Jan 5 2020 - June 30 2020",
     company: "Altran (part of capgemini)",
     About: `
-      'I was recruited at Altran in India, Noida campus placements at Amity University(30th Aug).'
-      , 'I bagged an Internship and full-time employment with them as a Java intern.',
-      'Write some assignments with java and manage to complete',
-      'Fixing Bugs  Review Code  Documented and much more'
+      - I was recruited at Altran in India, Noida campus placements at Amity University(30th Aug)
+      - I bagged an Internship and full-time employment with them as a Java intern.
+      - Write some assignments with java and manage to complete 
+      - Fixing Bugs  Review Code  Documented and much more
     `
   }]
 const Experience = () => {
