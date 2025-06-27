@@ -1,6 +1,6 @@
 import React from "react";
 import Reveal from "react-reveal/Reveal";
-import { HashLink } from 'react-router-hash-link';
+import { HashLink } from "react-router-hash-link";
 // import Skills from "../Skills/Skills";
 // import LinkedIn from "../../Image/icons/linkedin.png";
 // import github from "../../Image/icons/github.png";
@@ -112,29 +112,28 @@ const About = () => {
             </h3>
             <div className="fadeup-enter-dones">
               <p className="pheading ">
-                I’m a software engineer specializing in building (and
-                occasionally designing) exceptional digital experiences.
-                Currently, I’m focused on building accessible, human-centered
+                I’m a software engineer specializing in creating exceptional
+                digital experiences, with occasional involvement in design.
+                Currently, I focus on developing accessible, human-centered
                 products at
                 <a
                   href="https://india.target.com/"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <p className='text-success p-0 m-0'> @Target</p>
+                  <p className="text-success p-0 m-0"> @Target</p>
                 </a>
                 .
               </p>
             </div>
-            < HashLink
+            <HashLink
               to="/path#skills__list"
-              scroll={(el) => el.scrollIntoView({ behavior: 'auto', block: 'end' })}
+              scroll={(el) =>
+                el.scrollIntoView({ behavior: "auto", block: "end" })
+              }
             >
               <div className="fadeup-enter-done mt-3">
-                <p
-                  className="email__link"
-
-                >
+                <p className="email__link">
                   <span></span>
                   <span></span>
                   <span></span>
@@ -153,11 +152,15 @@ const About = () => {
                 <div className=" kNIdQM">
                   <div className="paaraa___heading ">
                     <p>
-                      Hello! My name is Shikha . My interest in Software development
-                      started back in 2019 .Now i am Software engineer for 3.10
-                      year working as a Engineer in the recent company,
-                      designing and transforming layout in the actual part of a
-                      working website.
+                      Myself Shikha, UI Engineer with 4+ years of experience building scalable
+                      web and mobile solutions using React.js, TypeScript,
+                      JavaScript, and Three.js. Delivered high-performance 3D
+                      UIs and real-time dashboards, including a full 3D home
+                      platform that improved processing by 35% and reduced
+                      latency by 60%. Recognized with Target’s Quarterly
+                      Excellence Award for launching a full learning platform in
+                      under 20 days. Passionate about clean code, fast
+                      execution, and user-first design.
                     </p>
                     <p>
                       Fast-forward to today, and I’ve had the privilege of
@@ -167,14 +170,12 @@ const About = () => {
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        <p className='text-success p-0 m-0'>Target</p>
+                        Target
                       </a>
+                      , where I continue to grow and contribute to impactful
+                      projects.
                     </p>
-                    <p>
-                      Here are a few technologies I’ve been working with
-                      recently:
-                    </p>
-                    <ul className="skills-list" id='skills__list'>
+                    <ul className="skills-list" id="skills__list">
                       <li>JavaScript (ES6+)</li>
                       <li>React</li>
                       <li>Redux</li>
@@ -186,7 +187,6 @@ const About = () => {
               </div>
             </div>
           </section>
-          {/* <Skills /> */}
         </Reveal>
       </main>
     </>

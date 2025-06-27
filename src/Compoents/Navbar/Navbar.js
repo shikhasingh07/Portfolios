@@ -1,9 +1,7 @@
-
 import logo from "../../Image/logo.png";
 import "./Navbar.css";
 import { HashLink } from "react-router-hash-link";
 const Navbar = () => {
-
   return (
     <>
       <header className="header___NavBar">
@@ -59,19 +57,19 @@ const Navbar = () => {
                   </HashLink>
                 </span>
                 <button className="btn  btn__resume">
-                  <HashLink>
-                    <a href="https://drive.google.com/file/d/1QYtalXchubUKhPK9UKarMnTQ0EC89daT/view?usp=sharing" target="blank" rel="noreferrer">
-                      {" "}
-                      Resume
-                    </a>
-                  </HashLink>
+                  <a
+                    href="https://drive.google.com/file/d/1rwG4ZgRDbhcZhMLnHZlHi41JN01BTEWC/view?usp=sharing"
+                    target="blank"
+                    rel="noreferrer"
+                  >
+                    {" "}
+                    Resume
+                  </a>
                 </button>
               </div>
             </div>
           </div>
-          <div className="col-2  m-0 p-0">
-
-          </div>
+          <div className="col-2  m-0 p-0"></div>
         </nav>
       </header>
     </>
