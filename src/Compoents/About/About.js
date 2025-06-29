@@ -89,9 +89,6 @@ const About = () => {
           <div className="m-auto main__con pt-2">
             <p className="heading__para mt-5 p-0">Hi, my name is</p>
             <h3 className="heading__h p-0 m-0">Shikha Singh</h3>
-            <h3 className="heading__h p-0 m-0 typeing__head">
-              Software Developer
-            </h3>
             <div className="fadeup-enter-dones">
               <p className="pheading ">
                 I’m a software engineer specializing in creating exceptional
