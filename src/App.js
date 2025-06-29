@@ -4,7 +4,7 @@ import { HashRouter } from "react-router-dom"
 import { useState } from "react";
 const Lazyprofile = React.lazy(() => import("./Compoents/Main/Main"));
 function App() {
-  const [light, setLight] = useState(false);
+  const [light, setLight] = useState(true);
   return (
 
     <>
