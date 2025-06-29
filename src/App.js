@@ -1,6 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Particles from 'react-particles-js';
-import particlesConfig from './Particles';
 import React from "react";
 import { HashRouter } from "react-router-dom"
 import { useState } from "react";
@@ -12,9 +10,6 @@ function App() {
     <>
       <HashRouter>
         <div className={light === false ? "light" : "dark"} style={{ position: 'relative', overflow: "hidden" }}>
-          <div style={{ position: 'fixed' }}>
-            <Particles height="100vh" width="100vw" params={particlesConfig} />
-          </div>
           <React.Suspense fallback={"Loading Please Wait"}>
             <Lazyprofile />
           </React.Suspense>

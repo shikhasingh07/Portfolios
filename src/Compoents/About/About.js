@@ -1,11 +1,6 @@
 import React from "react";
 import Reveal from "react-reveal/Reveal";
 import { HashLink } from "react-router-hash-link";
-// import Skills from "../Skills/Skills";
-// import LinkedIn from "../../Image/icons/linkedin.png";
-// import github from "../../Image/icons/github.png";
-// import logo from '../../Image/logo.png';
-import Typewriter from "typewriter-effect";
 import "./about.css";
 
 const About = () => {
@@ -95,20 +90,7 @@ const About = () => {
             <p className="heading__para mt-5 p-0">Hi, my name is</p>
             <h3 className="heading__h p-0 m-0">Shikha Singh</h3>
             <h3 className="heading__h p-0 m-0 typeing__head">
-              {" "}
-              <Typewriter
-                onInit={(typewriter) => {
-                  typewriter
-                    .typeString("I build things for the web.")
-                    .pauseFor(2000)
-                    .deleteAll()
-                    .typeString("Front End Developer")
-                    .pauseFor(2000)
-                    .deleteAll()
-                    .typeString("Software Developer")
-                    .start();
-                }}
-              />
+              Software Developer
             </h3>
             <div className="fadeup-enter-dones">
               <p className="pheading ">
@@ -152,15 +134,15 @@ const About = () => {
                 <div className=" kNIdQM">
                   <div className="paaraa___heading ">
                     <p>
-                      Myself Shikha, UI Engineer with 4+ years of experience building scalable
-                      web and mobile solutions using React.js, TypeScript,
-                      JavaScript, and Three.js. Delivered high-performance 3D
-                      UIs and real-time dashboards, including a full 3D home
-                      platform that improved processing by 35% and reduced
-                      latency by 60%. Recognized with Target’s Quarterly
-                      Excellence Award for launching a full learning platform in
-                      under 20 days. Passionate about clean code, fast
-                      execution, and user-first design.
+                      Myself Shikha, UI Engineer with 4+ years of experience
+                      building scalable web and mobile solutions using React.js,
+                      TypeScript, JavaScript, and Three.js. Delivered
+                      high-performance 3D UIs and real-time dashboards,
+                      including a full 3D home platform that improved processing
+                      by 35% and reduced latency by 60%. Recognized with
+                      Target’s Quarterly Excellence Award for launching a full
+                      learning platform in under 20 days. Passionate about clean
+                      code, fast execution, and user-first design.
                     </p>
                     <p>
                       Fast-forward to today, and I’ve had the privilege of
