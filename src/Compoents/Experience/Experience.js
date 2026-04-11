@@ -29,7 +29,7 @@ const EXPERIENCES = [
       "Spearheaded optimization of heavy 3D file handling — reduced package size by 35%, cutting UI load times and latency by 60%, and enabling multi-version rendering.",
       "Onboarded 7000+ external vendors/National Brands by streamlining feature creation requests and delivering key features in under 3 months.",
       "Optimized API latency by 55% using AI-powered asset size comparison and doubled transcoding speed via Web Workers.",
-      "Built MentorHub (internal platform) in under 20 days — now used org-wide. Received Target's Quarterly Excellence Award.",
+      "Built MentorHub (internal platform) in under 20 days — now deployed organization-wide. Received Target's Quarterly Excellence Award.",
       "Delivered Elevate App in 2 months, enabling 500+ users to manage sessions, attendance, food reservations, and mentorship.",
     ],
     tech: ["React.js", "TypeScript", "Three.js", "Web Workers", "Redux", "Tailwind CSS", "AWS", "Micro Frontend"],
@@ -42,7 +42,7 @@ const EXPERIENCES = [
     location: "Gurugram",
     highlights: [
       "Developed a full application from scratch in React.js, architecting core features and workflows.",
-      "Implemented comprehensive testing suite achieving 99.9% code reliability.",
+      "Implemented a comprehensive testing suite achieving 99.9% code reliability.",
       "Spearheaded end-to-end development of the LIC project, driving core feature implementation with a successful launch within 4 months.",
       "Delivered solutions for real-time workflows serving 6,000+ workers, integrating a new React-based recommendation model.",
     ],

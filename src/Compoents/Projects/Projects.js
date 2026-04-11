@@ -46,7 +46,7 @@ const PROJECTS = [
     projectTitle: "Memories",
     label: "Personal Project",
     projectSummary:
-      "Social media app where users post and share memorable events from their lives. Full-stack with JWT authentication, Google OAuth, and CRUD operations.",
+      "A social media application enabling users to post and share memorable life events. Full-stack application featuring JWT authentication, Google OAuth, and complete CRUD functionality.",
     tech: ["React.js", "Redux", "Material UI", "Node.js", "Express.js", "MongoDB", "JWT", "OAuth"],
     link: "https://github.com/shikhasingh07/memories",
   },

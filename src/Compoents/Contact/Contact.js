@@ -50,8 +50,8 @@ const Contact = () => {
           <p className="contact-overline">05. What's Next?</p>
           <h2 className="contact-title">Get In Touch</h2>
           <p className="contact-desc">
-            I'm currently open to new opportunities. Whether you have a role in mind,
-            a question, or just want to connect — my inbox is always open.
+            Currently open to new opportunities. Whether you have a role in mind,
+            a question, or simply want to connect — feel free to reach out.
           </p>
 
           <div className="contact-cta">

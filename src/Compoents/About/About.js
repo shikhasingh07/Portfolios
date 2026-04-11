@@ -131,7 +131,7 @@ const About = () => {
           <div className="about-grid">
             <div className="about-text">
               <p>
-                I'm a UI Engineer who loves building products at the intersection
+                I'm a UI Engineer passionate about building products at the intersection
                 of design and engineering. With 5+ years of experience, I've
                 delivered high-performance 3D UIs, real-time dashboards, and
                 scalable micro-frontend architectures.
@@ -141,10 +141,10 @@ const About = () => {
                 <a href="https://india.target.com/" target="_blank" rel="noreferrer" className="highlight-link">
                   Target
                 </a>
-                , I shipped tools used by <strong>7000+ external vendors</strong>,
+                , I built tools adopted by <strong>7,000+ external vendors</strong>,
                 reduced 3D rendering latency by <strong>60%</strong>, and launched
-                MentorHub in <strong>20 days</strong> — now used across the entire org.
-                Earned Target's <strong>Quarterly Excellence Award</strong> for it.
+                MentorHub in <strong>20 days</strong> — now deployed organization-wide.
+                Recognized with Target's <strong>Quarterly Excellence Award</strong>.
               </p>
               <p>Technologies I work with:</p>
               <ul className="skills-pill-list">
