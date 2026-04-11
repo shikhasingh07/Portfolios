@@ -67,7 +67,7 @@ const Navbar = () => {
           <li>
             <a
               className="btn-outline nav-resume"
-              href="https://drive.google.com/file/d/1mgQwCrwJktTW_24LPme-w1fg2x4_QKgI/view?usp=sharing"
+              href="https://drive.google.com/file/d/1dY0zZUBNGQGdB0ANqAWW5H-VrRJY0BYZ/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
             >
@@ -96,7 +96,7 @@ const Navbar = () => {
           ))}
           <a
             className="btn-outline mobile-resume"
-            href="https://drive.google.com/file/d/1rwG4ZgRDbhcZhMLnHZlHi41JN01BTEWC/view?usp=sharing"
+            href="https://drive.google.com/file/d/1dY0zZUBNGQGdB0ANqAWW5H-VrRJY0BYZ/view?usp=sharing"
             target="_blank"
             rel="noreferrer"
           >

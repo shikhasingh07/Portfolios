@@ -95,7 +95,7 @@ const About = () => {
 
           <div className="hero-cta hero-anim hero-anim-5">
             <a
-              href="https://drive.google.com/file/d/1mgQwCrwJktTW_24LPme-w1fg2x4_QKgI/view?usp=sharing"
+              href="https://drive.google.com/file/d/1dY0zZUBNGQGdB0ANqAWW5H-VrRJY0BYZ/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="btn-primary"
