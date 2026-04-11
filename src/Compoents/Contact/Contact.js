@@ -1,67 +1,95 @@
+/**
+ * Contact.js
+ *
+ * REACT CONCEPTS USED:
+ *   - motion.section     : scroll-triggered entrance animation
+ *   - useScrollAnimation(): custom hook — triggers when section is in view
+ *   - React.memo         : no changing props, prevents unnecessary re-renders
+ *   - Static data outside: social links array defined at module level
+ */
 import React from "react";
-import Reveal from 'react-reveal/Reveal';
+import { motion } from "framer-motion";
+import useScrollAnimation from "../../hooks/useScrollAnimation";
 import "./style.css";
-// import LinkedIn from "../../Image/icons/linkedin.png";
-// import github from "../../Image/icons/github.png";
-// import logo from '../../Image/logo.png';
+
+const SOCIALS = [
+  {
+    label: "GitHub",
+    href: "https://github.com/shikhasingh07",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+      </svg>
+    ),
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/shikha-singh-b027a7179/",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </svg>
+    ),
+  },
+];
+
 const Contact = () => {
+  const [sectionRef, inView] = useScrollAnimation(0.2);
+
   return (
     <>
-      <Reveal up>
-        <section
-          id="contact"
-          data-sr-id="65"
-          className='section__mainCon'
+      <section className="section contact-section" id="contact" ref={sectionRef}>
+        <motion.div
+          className="contact-inner"
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
         >
-          <h2 className="numbered-heading overline about__heading">What’s Next?</h2>
-          <div className="footer__com p-3">
-            <h2 className="title pheading p-0 m-0">Get In Touch</h2>
-            <p className='pheading'>
-              Although I’m always looking for any new opportunities, my
-              inbox is always open. Whether you have a question or just want to
-              say hi, I’ll try my best to get back to you!
-            </p>
+          <p className="contact-overline">05. What's Next?</p>
+          <h2 className="contact-title">Get In Touch</h2>
+          <p className="contact-desc">
+            I'm currently open to new opportunities. Whether you have a role in mind,
+            a question, or just want to connect — my inbox is always open.
+          </p>
+
+          <div className="contact-cta">
             <a
-              className="email-link main__btn"
               href="mailto:shikha.thakur2295@gmail.com"
-              rel="noopener noreferrer"
-              target="_blank"
+              className="btn-primary"
             >
-              Talk To Me
+              Say Hello ✉️
             </a>
-          </div>
-        </section >
-        <footer className="footer__f ">
-          <div className="github-stats p-2">
             <a
               href="https://www.linkedin.com/in/shikha-singh-b027a7179/"
-              rel="noopener noreferrer"
               target="_blank"
-              className='p-1'
+              rel="noreferrer"
+              className="btn-outline"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-linkedin"><title>LinkedIn</title><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-            </a>
-            <a
-              href="https://github.com/shikhasingh07"
-              rel="noopener noreferrer"
-              target="_blank"
-              className='p-1'
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-            </a>
-            <a
-              href="mailto:shikha.thakur2295"
-              rel="noopener noreferrer"
-              target="_blank"
-              className='p-1'
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-external-link"><title>External Link</title><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              LinkedIn ↗
             </a>
           </div>
-        </footer>
-      </Reveal>
+        </motion.div>
+      </section>
+
+      {/* ── Footer ── */}
+      <footer className="site-footer">
+        <div className="footer-socials">
+          {SOCIALS.map(({ label, href, icon }) => (
+            <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} className="footer-icon">
+              {icon}
+            </a>
+          ))}
+        </div>
+        <p className="footer-credit">
+          Built with <span className="heart">♥</span> using{" "}
+          <span className="gradient-text">React 18 + Three.js</span>
+        </p>
+        <p className="footer-name">Shikha Singh</p>
+      </footer>
     </>
   );
 };
 
-export default Contact;
+export default React.memo(Contact);

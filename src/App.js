@@ -1,39 +1,47 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+/**
+ * src/App.js
+ *
+ * REACT CONCEPTS USED:
+ *   - React.lazy    : dynamically imports <Main /> so it's excluded from the
+ *                     initial bundle. The browser only downloads it when needed.
+ *   - React.Suspense: shows a fallback UI while the lazy component loads.
+ *                     Without Suspense, React would throw an error on lazy load.
+ *   - HashRouter    : client-side routing without a server — works perfectly
+ *                     on static hosts (GitHub Pages, Netlify).
+ */
+import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
-import { HashRouter } from "react-router-dom"
-import { useState } from "react";
-const Lazyprofile = React.lazy(() => import("./Compoents/Main/Main"));
+import { HashRouter } from "react-router-dom";
+
+// React.lazy — code-split Main so the initial JS bundle stays small
+const Main = React.lazy(() => import("./Compoents/Main/Main"));
+
 function App() {
-  const [light, setLight] = useState(true);
   return (
-
-    <>
-      <HashRouter>
-        <div className={light === false ? "light" : "dark"} style={{ position: 'relative', overflow: "hidden" }}>
-          <React.Suspense fallback={"Loading Please Wait"}>
-            <Lazyprofile />
-          </React.Suspense>
-        </div>
-      </HashRouter>
-      <div
-        orientation="right"
-        className=" jSIwrL"
+    <HashRouter>
+      {/* Suspense: render a skeleton while Main.js chunk is downloading */}
+      <React.Suspense
+        fallback={
+          <div
+            style={{
+              minHeight: "100vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "#050510",
+              color: "#6366f1",
+              fontFamily: "JetBrains Mono, monospace",
+              fontSize: "14px",
+              letterSpacing: "0.1em",
+            }}
+          >
+            Loading...
+          </div>
+        }
       >
-        <div className=" jJFfEJ fade-enter-done">
-          <a href="mailto:shikha.thankur2295@gmail.com">
-            shikha.thankur2295@gmail.com
-          </a>
-        </div>
-      </div>
-      <div orientation="right" className="light__bowl" onClick={() => setLight(!light)}>
-        {light === false ? <div className="light__text jJFfEJ fade-enter-done">
-          on
-        </div> : <div className="dark__text jJFfEJ fade-enter-done">
-          Off
-        </div>}
-      </div>
-    </>
-
+        <Main />
+      </React.Suspense>
+    </HashRouter>
   );
 }
 

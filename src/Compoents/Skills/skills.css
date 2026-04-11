@@ -1,0 +1,71 @@
+/* ─── Skills Grid ───────────────────────────────────────────── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.skill-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 28px 20px;
+  border-radius: var(--radius);
+  cursor: default;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: var(--bg-card);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  border-color: var(--skill-color, var(--accent-indigo));
+  box-shadow: 0 0 24px rgba(99, 102, 241, 0.12);
+}
+
+.skill-icon {
+  font-size: 32px;
+  line-height: 1;
+  filter: drop-shadow(0 0 8px var(--skill-color, transparent));
+}
+
+.skill-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  text-align: center;
+  transition: color 0.2s ease;
+}
+
+.skill-card:hover .skill-name {
+  color: var(--text-primary);
+}
+
+/* Subtle radial glow behind the card on hover */
+.skill-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, var(--skill-color, #6366f1) 8%, transparent),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.skill-card:hover .skill-glow {
+  opacity: 1;
+}
+
+/* ─── Responsive ────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
