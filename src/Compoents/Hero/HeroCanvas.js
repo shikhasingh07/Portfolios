@@ -37,10 +37,10 @@ const HeroCanvas = () => {
     renderer.setClearColor(0x000000, 0);
     mount.appendChild(renderer.domElement);
 
-    // ── Wireframe materials ───────────────────────────────────
-    const mat1 = new THREE.MeshBasicMaterial({ color: 0x6366f1, wireframe: true, transparent: true, opacity: 0.55 });
-    const mat2 = new THREE.MeshBasicMaterial({ color: 0x06b6d4, wireframe: true, transparent: true, opacity: 0.45 });
-    const mat3 = new THREE.MeshBasicMaterial({ color: 0xa78bfa, wireframe: true, transparent: true, opacity: 0.35 });
+    // ── Wireframe materials — night sky palette ───────────────
+    const mat1 = new THREE.MeshBasicMaterial({ color: 0xf59e0b, wireframe: true, transparent: true, opacity: 0.30 }); // gold
+    const mat2 = new THREE.MeshBasicMaterial({ color: 0x60a5fa, wireframe: true, transparent: true, opacity: 0.25 }); // moonlight blue
+    const mat3 = new THREE.MeshBasicMaterial({ color: 0xc084fc, wireframe: true, transparent: true, opacity: 0.20 }); // nebula purple
 
     // ── Geometric shapes ──────────────────────────────────────
     const shapes = [];
@@ -65,7 +65,7 @@ const HeroCanvas = () => {
     pGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     const particles = new THREE.Points(
       pGeo,
-      new THREE.PointsMaterial({ color: 0x6366f1, size: 0.12, transparent: true, opacity: 0.5 })
+      new THREE.PointsMaterial({ color: 0xfde68a, size: 0.10, transparent: true, opacity: 0.35 })
     );
     scene.add(particles);
 

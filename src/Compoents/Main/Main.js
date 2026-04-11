@@ -2,13 +2,13 @@
  * Main.js — Root layout component
  *
  * REACT CONCEPTS USED:
- *   - Component composition : Main orchestrates all sections as a flat list.
- *                             Each section is self-contained (owns its state
- *                             and animations) — Main just renders them in order.
- *   - No prop drilling      : each section pulls data from its own static
- *                             arrays — nothing flows through Main.
- *   - React.lazy (indirect) : HeroCanvas inside <About> is already lazy-loaded,
- *                             so Main never waits for Three.js on first render.
+ *   - React.lazy + Suspense : StarCanvas (Three.js) is lazy-loaded so the
+ *                             starfield doesn't block the initial page paint.
+ *                             The rest of the page renders immediately while
+ *                             Three.js loads in the background.
+ *   - Component composition : Main is a thin shell — each section owns its
+ *                             own state, animations, and data.
+ *   - No prop drilling      : nothing flows through Main; each child is self-contained.
  */
 import React from "react";
 import Navbar from "../Navbar/Navbar";
@@ -18,9 +18,17 @@ import Skills from "../Skills/Skills";
 import Projects from "../Projects/Projects";
 import Contact from "../Contact/Contact";
 
+// Lazy-load the Three.js starfield so it never blocks first paint
+const StarCanvas = React.lazy(() => import("../Hero/StarCanvas"));
+
 const Main = () => {
   return (
     <>
+      {/* Fixed night-sky starfield — renders behind everything via z-index 0 */}
+      <React.Suspense fallback={null}>
+        <StarCanvas />
+      </React.Suspense>
+
       <Navbar />
       <About />
       <Experience />

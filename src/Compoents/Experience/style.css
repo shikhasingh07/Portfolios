@@ -32,12 +32,12 @@
 }
 
 .exp-tab:hover {
-  color: var(--accent-cyan);
+  color: var(--accent-gold);
   background: rgba(6, 182, 212, 0.05);
 }
 
 .exp-tab.active {
-  color: var(--accent-cyan);
+  color: var(--accent-gold);
 }
 
 /* Sliding active indicator */
@@ -47,7 +47,7 @@
   top: 0;
   width: 2px;
   height: 48px;
-  background: var(--accent-cyan);
+  background: var(--accent-gold);
   border-radius: 1px;
   transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
@@ -70,7 +70,7 @@
 }
 
 .exp-company {
-  color: var(--accent-cyan);
+  color: var(--accent-gold);
   text-decoration: none;
   transition: var(--transition);
 }
@@ -90,7 +90,7 @@
 }
 
 .exp-dot {
-  color: var(--accent-indigo);
+  color: var(--accent-blue);
 }
 
 /* ─── Highlights List ───────────────────────────────────────── */
@@ -112,7 +112,7 @@
 }
 
 .exp-bullet {
-  color: var(--accent-cyan);
+  color: var(--accent-gold);
   flex-shrink: 0;
   margin-top: 2px;
   font-size: 12px;
@@ -137,8 +137,8 @@
 }
 
 .tech-badge:hover {
-  border-color: var(--accent-indigo);
-  color: var(--accent-indigo);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
 }
 
 /* ─── Responsive ────────────────────────────────────────────── */
@@ -163,6 +163,6 @@
     display: none;
   }
   .exp-tab.active {
-    border-bottom: 2px solid var(--accent-cyan);
+    border-bottom: 2px solid var(--accent-gold);
   }
 }

@@ -14,7 +14,7 @@
 .contact-overline {
   font-family: var(--font-mono);
   font-size: 14px;
-  color: var(--accent-cyan);
+  color: var(--accent-gold);
   letter-spacing: 0.1em;
   margin-bottom: 16px;
 }
@@ -66,7 +66,7 @@
 }
 
 .footer-icon:hover {
-  color: var(--accent-cyan);
+  color: var(--accent-blue);
   transform: translateY(-3px);
 }
 

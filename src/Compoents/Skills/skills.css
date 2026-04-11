@@ -22,7 +22,7 @@
 }
 
 .skill-card:hover {
-  border-color: var(--skill-color, var(--accent-indigo));
+  border-color: var(--skill-color, var(--accent-gold));
   box-shadow: 0 0 24px rgba(99, 102, 241, 0.12);
 }
 
