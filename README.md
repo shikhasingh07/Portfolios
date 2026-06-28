@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Shikha Singh — Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> UI Engineer · React.js · TypeScript · Three.js · Delhi NCR
 
-## Available Scripts
+Personal portfolio website built with React 18 and Three.js featuring an interactive 3D galaxy, anime-inspired design, and a compact 3-section layout.
 
-In the project directory, you can run:
+**Live →** [shikhasingh.netlify.app](https://shikhasingh.netlify.app)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## ✨ Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Interactive 3D Galaxy** — 10,000 particle galaxy rendered with Three.js custom shaders. Drag to tilt, auto-rotates, mouse parallax.
+- **Anime / Neon Blossom theme** — Fuchsia · Violet · Cyan palette with Syne display font
+- **Typewriter animation** — Cycles through roles with smooth type/delete effect
+- **3D tilt cards** — CSS perspective tilt on hover for skill and project cards
+- **Compact structure** — 3 sections only (Hero → Overview → Work → Contact), minimal scroll
+- **SEO optimised** — Meta tags, Open Graph, Twitter Card, JSON-LD schema markup
+- **Security headers** — CSP, X-Frame-Options, HSTS, Permissions-Policy via Netlify
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Tech Stack
 
-### `npm run build`
+| Layer | Technology |
+|---|---|
+| Framework | React 18 |
+| 3D / WebGL | Three.js 0.183 |
+| Animation | Framer Motion |
+| Routing | React Router v5 (HashRouter) |
+| Styling | CSS Modules + CSS Variables |
+| Fonts | Syne · Inter · JetBrains Mono |
+| Deploy | Netlify |
+| Node | 18 |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📁 Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+src/
+├── App.js
+├── index.css                  # Global design system (Neon Blossom palette)
+└── Compoents/
+    ├── Navbar/                # Sticky navigation
+    ├── Hero/
+    │   ├── Background.js      # Mounts galaxy + dark overlay
+    │   ├── GalaxyScene.js     # Three.js 10K particle galaxy (draggable)
+    │   ├── Hero.js            # Hero section — name, typewriter, CTAs, stats
+    │   └── hero.css
+    ├── Overview/              # Combined About + Skills + Experience
+    ├── Work/                  # Project cards with CSS 3D tilt
+    └── Contact/               # Minimal CTA + footer
+```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🚀 Getting Started
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+# Install dependencies
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Start dev server
+npm start          # http://localhost:3000
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Production build
+npm run build
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🔒 Security
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Security headers configured in `netlify.toml`:
 
-### Code Splitting
+- `Content-Security-Policy`
+- `X-Frame-Options: DENY`
+- `X-Content-Type-Options: nosniff`
+- `Strict-Transport-Security`
+- `Permissions-Policy`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 📬 Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Shikha Singh** — UI Engineer open to roles in Delhi NCR
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Email: [shikha.thakur2295@gmail.com](mailto:shikha.thakur2295@gmail.com)
+- LinkedIn: [linkedin.com/in/shikha-singh-b027a7179](https://www.linkedin.com/in/shikha-singh-b027a7179/)
+- GitHub: [github.com/shikhasingh07](https://github.com/shikhasingh07)
