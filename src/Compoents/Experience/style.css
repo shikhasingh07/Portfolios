@@ -1,4 +1,4 @@
-/* ─── Experience Layout ─────────────────────────────────────── */
+/* ─── Layout ────────────────────────────────────────────────── */
 .exp-layout {
   display: flex;
   gap: 40px;
@@ -11,8 +11,8 @@
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  width: 160px;
-  border-left: 2px solid var(--glass-border);
+  width: 175px;
+  border-left: 2px solid rgba(255,255,255,0.06);
 }
 
 .exp-tab {
@@ -20,102 +20,132 @@
   z-index: 1;
   background: none;
   border: none;
-  padding: 12px 20px;
+  padding: 14px 20px;
   text-align: left;
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--text-muted);
   cursor: pointer;
-  transition: var(--transition);
-  height: 48px;
-  white-space: nowrap;
+  transition: all 0.2s ease;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .exp-tab:hover {
-  color: var(--accent-gold);
-  background: rgba(6, 182, 212, 0.05);
+  color: var(--text-primary);
+  background: rgba(99,102,241,0.05);
 }
 
 .exp-tab.active {
-  color: var(--accent-gold);
+  color: var(--text-primary);
 }
 
-/* Sliding active indicator */
+.tab-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.exp-tab.active .tab-dot {
+  box-shadow: 0 0 10px currentColor;
+}
+
 .tab-indicator {
   position: absolute;
   left: -2px;
   top: 0;
   width: 2px;
-  height: 48px;
-  background: var(--accent-gold);
+  height: 52px;
+  background: linear-gradient(to bottom, var(--accent-violet), var(--accent-cyan));
   border-radius: 1px;
-  transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.28s cubic-bezier(0.645, 0.045, 0.355, 1);
+  box-shadow: 0 0 12px rgba(139,92,246,0.6);
 }
 
 /* ─── Detail Panel ──────────────────────────────────────────── */
 .exp-panel {
   flex: 1;
-  min-height: 280px;
+  min-height: 300px;
 }
 
-.exp-header {
-  margin-bottom: 20px;
+.exp-header { margin-bottom: 20px; }
+
+.exp-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
 }
 
 .exp-role {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 6px;
+  line-height: 1.3;
 }
 
 .exp-company {
-  color: var(--accent-gold);
   text-decoration: none;
-  transition: var(--transition);
+  font-weight: 700;
+  transition: opacity 0.2s;
 }
+.exp-company:hover { opacity: 0.8; text-decoration: underline; text-underline-offset: 3px; }
 
-.exp-company:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.exp-type-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(99,102,241,0.12);
+  border: 1px solid rgba(99,102,241,0.25);
+  color: var(--accent-indigo);
+  flex-shrink: 0;
+  white-space: nowrap;
+  margin-top: 4px;
 }
 
 .exp-meta {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-muted);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
-.exp-dot {
-  color: var(--accent-blue);
-}
+.meta-icon { font-size: 11px; }
+.meta-sep  { color: rgba(255,255,255,0.15); }
 
-/* ─── Highlights List ───────────────────────────────────────── */
+/* ─── Highlights ────────────────────────────────────────────── */
 .exp-highlights {
   list-style: none;
   padding: 0;
   margin: 0 0 24px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .exp-highlights li {
   display: flex;
   gap: 12px;
-  font-size: 15px;
+  font-size: 14.5px;
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 .exp-bullet {
-  color: var(--accent-gold);
   flex-shrink: 0;
-  margin-top: 2px;
-  font-size: 12px;
+  margin-top: 3px;
+  font-size: 11px;
 }
 
 /* ─── Tech Badges ───────────────────────────────────────────── */
@@ -127,18 +157,19 @@
 
 .tech-badge {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 11px;
   padding: 4px 12px;
   border-radius: 20px;
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(255,255,255,0.08);
   color: var(--text-secondary);
-  background: var(--bg-card);
-  transition: var(--transition);
+  background: rgba(255,255,255,0.04);
+  transition: all 0.2s;
 }
 
 .tech-badge:hover {
-  border-color: var(--accent-blue);
-  color: var(--accent-blue);
+  border-color: var(--accent-indigo);
+  color: var(--accent-indigo);
+  background: rgba(99,102,241,0.08);
 }
 
 /* ─── Responsive ────────────────────────────────────────────── */
@@ -151,18 +182,20 @@
     flex-direction: row;
     width: 100%;
     border-left: none;
-    border-bottom: 2px solid var(--glass-border);
+    border-bottom: 2px solid rgba(255,255,255,0.06);
     overflow-x: auto;
+    padding-bottom: 0;
   }
   .exp-tab {
     height: auto;
-    padding: 10px 16px;
+    padding: 10px 14px;
+    white-space: nowrap;
     border-bottom: none;
   }
-  .tab-indicator {
-    display: none;
-  }
+  .tab-indicator { display: none; }
   .exp-tab.active {
-    border-bottom: 2px solid var(--accent-gold);
+    border-bottom: 2px solid var(--accent-violet);
+    color: var(--text-primary);
   }
+  .exp-title-row { flex-direction: column; gap: 8px; }
 }

@@ -1,15 +1,5 @@
-/**
- * Contact.js
- *
- * REACT CONCEPTS USED:
- *   - motion.section     : scroll-triggered entrance animation
- *   - useScrollAnimation(): custom hook — triggers when section is in view
- *   - React.memo         : no changing props, prevents unnecessary re-renders
- *   - Static data outside: social links array defined at module level
- */
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import useScrollAnimation from "../../hooks/useScrollAnimation";
 import "./style.css";
 
 const SOCIALS = [
@@ -35,31 +25,102 @@ const SOCIALS = [
   },
 ];
 
-const Contact = () => {
-  const [sectionRef, inView] = useScrollAnimation(0.2);
+const FloatingParticles = () => {
+  const canvasRef = useRef(null);
 
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    let W = canvas.offsetWidth;
+    let H = canvas.offsetHeight;
+    canvas.width = W;
+    canvas.height = H;
+
+    const particles = Array.from({ length: 40 }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 1.5 + 0.5,
+      dx: (Math.random() - 0.5) * 0.4,
+      dy: (Math.random() - 0.5) * 0.4,
+      alpha: Math.random() * 0.5 + 0.1,
+      color: Math.random() > 0.5 ? "99,102,241" : "6,182,212",
+    }));
+
+    let frameId;
+    const draw = () => {
+      frameId = requestAnimationFrame(draw);
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach((p) => {
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > W) p.dx *= -1;
+        if (p.y < 0 || p.y > H) p.dy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.color},${p.alpha})`;
+        ctx.fill();
+      });
+    };
+    draw();
+
+    const onResize = () => {
+      W = canvas.offsetWidth;
+      H = canvas.offsetHeight;
+      canvas.width = W;
+      canvas.height = H;
+    };
+    window.addEventListener("resize", onResize, { passive: true });
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
+
+  return <canvas ref={canvasRef} className="contact-particles" />;
+};
+
+const Contact = () => {
   return (
     <>
-      <section className="section contact-section" id="contact" ref={sectionRef}>
+      <section className="section contact-section" id="contact">
+        <FloatingParticles />
         <motion.div
           className="contact-inner"
           initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7 }}
         >
-          <p className="contact-overline">05. What's Next?</p>
-          <h2 className="contact-title">Get In Touch</h2>
+          <span className="contact-overline">
+            <span className="overline-num">05.</span> What's Next?
+          </span>
+          <h2 className="contact-title">
+            Let's Build{" "}
+            <span className="gradient-text">Something Great</span>
+          </h2>
           <p className="contact-desc">
-            Currently open to new opportunities. Whether you have a role in mind,
-            a question, or simply want to connect — feel free to reach out.
+            I'm actively looking for new opportunities. Whether you have a role in mind,
+            a challenging project, or just want to connect — I'd love to hear from you.
           </p>
 
+          <div className="contact-availability">
+            <span className="avail-dot" />
+            <span>Available for full-time roles</span>
+          </div>
+
           <div className="contact-cta">
-            <a
-              href="mailto:shikha.thakur2295@gmail.com"
-              className="btn-primary"
-            >
+            <a href="mailto:shikha.thakur2295@gmail.com" className="btn-primary contact-email-btn">
               Say Hello ✉️
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1dY0zZUBNGQGdB0ANqAWW5H-VrRJY0BYZ/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-outline"
+            >
+              Resume ↗
             </a>
             <a
               href="https://www.linkedin.com/in/shikha-singh-b027a7179/"
@@ -70,10 +131,14 @@ const Contact = () => {
               LinkedIn ↗
             </a>
           </div>
+
+          {/* Decorative glow orbs */}
+          <div className="contact-glow contact-glow-1" />
+          <div className="contact-glow contact-glow-2" />
         </motion.div>
       </section>
 
-      {/* ── Footer ── */}
+      {/* ── Footer ────────────────────────────────── */}
       <footer className="site-footer">
         <div className="footer-socials">
           {SOCIALS.map(({ label, href, icon }) => (
@@ -83,10 +148,12 @@ const Contact = () => {
           ))}
         </div>
         <p className="footer-credit">
-          Built with <span className="heart">♥</span> using{" "}
-          <span className="gradient-text">React 18 + Three.js</span>
+          Designed &amp; Built by{" "}
+          <span className="gradient-text">Shikha Singh</span>
         </p>
-        <p className="footer-name">Shikha Singh</p>
+        <p className="footer-stack">
+          React 18 · Three.js · Framer Motion
+        </p>
       </footer>
     </>
   );

@@ -1,77 +1,124 @@
-/**
- * Skills.js — Tech Stack Section (NEW COMPONENT)
- *
- * REACT CONCEPTS USED:
- *   - useScrollAnimation()  : custom hook — IntersectionObserver triggers
- *                             animation when section scrolls into view
- *   - motion.div (framer)   : `variants` + `staggerChildren` cascade each
- *                             card in one after the other automatically
- *   - Static data outside   : SKILLS array defined outside component so it
- *                             is created once, not on every render
- *   - React.memo            : wraps export — this component has no props that
- *                             change, so memo prevents any re-renders
- */
 import React from "react";
 import { motion } from "framer-motion";
-import useScrollAnimation from "../../hooks/useScrollAnimation";
 import "./skills.css";
 
-// Static data — defined outside component (stable reference, never re-created)
-const SKILLS = [
-  { name: "React.js",      icon: "⚛️",  color: "#61dafb" },
-  { name: "TypeScript",    icon: "📘",  color: "#3178c6" },
-  { name: "JavaScript",    icon: "⚡",  color: "#f7df1e" },
-  { name: "Three.js",      icon: "🎯",  color: "#a78bfa" },
-  { name: "Redux",         icon: "🔄",  color: "#764abc" },
-  { name: "Tailwind CSS",  icon: "🌊",  color: "#06b6d4" },
-  { name: "Web Workers",   icon: "⚙️",  color: "#10b981" },
-  { name: "AWS",           icon: "☁️",  color: "#ff9900" },
-  { name: "Jest",          icon: "🧪",  color: "#c21325" },
-  { name: "Cypress",       icon: "🌲",  color: "#17202c" },
-  { name: "Flutter",       icon: "📱",  color: "#54c5f8" },
-  { name: "Micro Frontend",icon: "🧩",  color: "#6366f1" },
+const SKILL_GROUPS = [
+  {
+    category: "Frontend",
+    color: "#6366f1",
+    skills: [
+      { name: "React.js",     icon: "⚛️",  level: 95 },
+      { name: "TypeScript",   icon: "📘",  level: 90 },
+      { name: "JavaScript",   icon: "⚡",  level: 92 },
+      { name: "Three.js",     icon: "🌐",  level: 85 },
+      { name: "Tailwind CSS", icon: "🌊",  level: 88 },
+      { name: "Redux",        icon: "🔄",  level: 87 },
+    ],
+  },
+  {
+    category: "Platform & Tools",
+    color: "#06b6d4",
+    skills: [
+      { name: "Web Workers",    icon: "⚙️",  level: 85 },
+      { name: "AWS",            icon: "☁️",  level: 75 },
+      { name: "Micro Frontend", icon: "🧩",  level: 82 },
+      { name: "Flutter",        icon: "📱",  level: 72 },
+      { name: "Git / CI/CD",    icon: "🔧",  level: 88 },
+      { name: "MySQL",          icon: "🗄️",  level: 70 },
+    ],
+  },
+  {
+    category: "Testing & AI",
+    color: "#a78bfa",
+    skills: [
+      { name: "Jest",         icon: "🧪",  level: 88 },
+      { name: "Cypress",      icon: "🌲",  level: 75 },
+      { name: "Gen AI / LLM", icon: "🤖",  level: 78 },
+      { name: "Prompt Eng.",  icon: "💬",  level: 80 },
+    ],
+  },
 ];
 
-// framer-motion variants — outside component (stable)
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.07 } },
+const TiltCard = ({ name, icon, level, color }) => {
+  const cardRef = React.useRef(null);
+
+  const handleMove = (e) => {
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width  - 0.5;
+    const y = (e.clientY - rect.top)  / rect.height - 0.5;
+    cardRef.current.style.transform = `perspective(600px) rotateX(${-y * 14}deg) rotateY(${x * 14}deg) translateZ(8px)`;
+    cardRef.current.style.setProperty("--mx", `${(x + 0.5) * 100}%`);
+    cardRef.current.style.setProperty("--my", `${(y + 0.5) * 100}%`);
+  };
+
+  const handleLeave = () => {
+    cardRef.current.style.transform = "";
+  };
+
+  return (
+    <div
+      ref={cardRef}
+      className="skill-card glass-card"
+      style={{ "--skill-color": color }}
+      onMouseMove={handleMove}
+      onMouseLeave={handleLeave}
+    >
+      <div className="skill-shine" />
+      <span className="skill-icon">{icon}</span>
+      <span className="skill-name">{name}</span>
+      <div className="skill-bar-wrap">
+        <div className="skill-bar-fill" style={{ width: `${level}%`, background: color }} />
+      </div>
+      <div className="skill-glow-dot" style={{ background: color }} />
+    </div>
+  );
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 24, scale: 0.95 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.4, ease: "easeOut" } },
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.05 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.35, ease: "easeOut" } },
 };
 
 const Skills = () => {
-  // Custom hook: ref attaches to the section; inView flips true when visible
-  const [sectionRef, inView] = useScrollAnimation(0.1);
-
   return (
-    <section className="section" id="skills" ref={sectionRef}>
+    <section className="section" id="skills">
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.7 }}
       >
         <h2 className="section-heading">
           <span className="num">04.</span> Skills &amp; Technologies
         </h2>
 
-        <div className="skills-grid">
-          {SKILLS.map(({ name, icon, color }) => (
-            // whileHover on individual cards for interactive lift
-            <motion.div
-              key={name}
-              className="skill-card glass-card"
-              variants={cardVariants}
-              whileHover={{ y: -6, scale: 1.03, transition: { duration: 0.2 } }}
-              style={{ "--skill-color": color }}
-            >
-              <span className="skill-icon">{icon}</span>
-              <span className="skill-name">{name}</span>
-              <div className="skill-glow" />
-            </motion.div>
+        <div className="skills-groups">
+          {SKILL_GROUPS.map(({ category, color, skills }) => (
+            <div key={category} className="skills-group">
+              <div className="group-header">
+                <div className="group-dot" style={{ background: color, boxShadow: `0 0 12px ${color}` }} />
+                <h3 className="group-title" style={{ color }}>{category}</h3>
+              </div>
+
+              <motion.div
+                className="skills-grid"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+              >
+                {skills.map(({ name, icon, level }) => (
+                  <motion.div key={name} variants={itemVariants}>
+                    <TiltCard name={name} icon={icon} level={level} color={color} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
           ))}
         </div>
       </motion.div>

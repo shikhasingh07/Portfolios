@@ -1,144 +1,148 @@
-/**
- * Experience.js — Work History Timeline
- *
- * REACT CONCEPTS USED:
- *   - useState         : tracks which timeline item is expanded (activeIndex)
- *   - AnimatePresence  : enables exit animations when the active item changes.
- *                        Without it, the outgoing item would disappear instantly.
- *   - motion.div       : declarative slide-in for the detail panel
- *   - useScrollAnimation(): custom hook for scroll-triggered entrance
- *   - Static data outside: EXPERIENCES array defined once, not recreated per render
- *
- * PATTERN: Controlled component — activeIndex state lives here and is passed
- * down to child markup as props/data. Single source of truth.
- */
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import useScrollAnimation from "../../hooks/useScrollAnimation";
 import "./style.css";
 
-// Experience data — defined outside component (stable reference)
 const EXPERIENCES = [
   {
     role: "Software Engineer (SDE-I)",
     company: "Target",
     companyUrl: "https://india.target.com/",
     period: "Jan 2022 – Present",
-    location: "Bengaluru",
+    location: "Bengaluru, India",
+    type: "Full-time",
+    color: "#cc0000",
     highlights: [
-      "Spearheaded optimization of heavy 3D file handling — reduced package size by 35%, cutting UI load times and latency by 60%, and enabling multi-version rendering.",
-      "Onboarded 7000+ external vendors/National Brands by streamlining feature creation requests and delivering key features in under 3 months.",
-      "Optimized API latency by 55% using AI-powered asset size comparison and doubled transcoding speed via Web Workers.",
-      "Built MentorHub (internal platform) in under 20 days — now deployed organization-wide. Received Target's Quarterly Excellence Award.",
-      "Delivered Elevate App in 2 months, enabling 500+ users to manage sessions, attendance, food reservations, and mentorship.",
+      "Spearheaded optimization of heavy 3D file handling — reduced package size by 35%, cutting UI load times by 60%, enabling multi-version rendering.",
+      "Onboarded 7,000+ external vendors / National Brands by streamlining feature creation and delivering key features in under 3 months.",
+      "Built Artist Availability Dashboard — tracks real-time bandwidth across 500+ artists, saving 100+ hours/month in scheduling.",
+      "Developed AI-powered Reporting Platform used by 1,000+ team members generating 10–15 reports/week, eliminating manual reporting.",
+      "Optimized API latency by 55% with AI-powered asset comparison; doubled transcoding speed via Web Workers.",
+      "Built MentorHub in under 20 days — org-wide mentorship platform. Earned Target's Quarterly Excellence Award.",
+      "Delivered Elevate mobile app in 2 months — adopted by 500+ users for sessions, attendance, and team engagement.",
     ],
     tech: ["React.js", "TypeScript", "Three.js", "Web Workers", "Redux", "Tailwind CSS", "AWS", "Micro Frontend"],
   },
   {
     role: "Software Engineer (SDE-I)",
-    company: "Capgemini",
+    company: "Capgemini Engineering",
     companyUrl: "#",
     period: "Nov 2020 – Jan 2022",
-    location: "Gurugram",
+    location: "Gurugram, India",
+    type: "Full-time",
+    color: "#0070ad",
     highlights: [
-      "Developed a full application from scratch in React.js, architecting core features and workflows.",
-      "Implemented a comprehensive testing suite achieving 99.9% code reliability.",
-      "Spearheaded end-to-end development of the LIC project, driving core feature implementation with a successful launch within 4 months.",
-      "Delivered solutions for real-time workflows serving 6,000+ workers, integrating a new React-based recommendation model.",
+      "Built Logistka from scratch — architecting the dashboard, attendance tracker, and login system.",
+      "Implemented comprehensive test coverage using Jest, achieving 99.9% code reliability.",
+      "Led end-to-end development of the LIC project, driving core feature implementation within 4 months.",
+      "Delivered real-time workflow solutions serving 6,000+ workers with a React-based recommendation model.",
     ],
     tech: ["React.js", "Redux", "TypeScript", "Jest", "CI/CD"],
   },
   {
-    role: "Intern — Java",
+    role: "Engineer Intern",
     company: "Altran (Capgemini)",
     companyUrl: "#",
-    period: "Jan 2020 – Jun 2020",
-    location: "Noida",
+    period: "Feb 2020 – Jun 2020",
+    location: "Gurugram, India",
+    type: "Internship",
+    color: "#6366f1",
     highlights: [
-      "Recruited through campus placements at Amity University.",
+      "Built frontend components using React.js as part of a 5-month engineering internship.",
       "Completed Java assignments, bug fixes, code reviews, and documentation.",
       "Transitioned into a full-time Software Engineer role post-internship.",
     ],
-    tech: ["Java", "Spring"],
+    tech: ["React.js", "Java", "Spring"],
   },
 ];
 
 const Experience = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [sectionRef, inView] = useScrollAnimation(0.1);
+  const [active, setActive] = useState(0);
 
   return (
-    <section className="section" id="Experience" ref={sectionRef}>
+    <section className="section" id="Experience">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.7 }}
       >
         <h2 className="section-heading">
           <span className="num">02.</span> Where I've Worked
         </h2>
 
         <div className="exp-layout">
-          {/* ── Tab list ── */}
+          {/* ── Tab list ────────────────────────────── */}
           <div className="exp-tabs" role="tablist">
-            {EXPERIENCES.map(({ company }, i) => (
+            {EXPERIENCES.map(({ company, color }, i) => (
               <button
                 key={company}
                 role="tab"
-                aria-selected={activeIndex === i}
-                className={`exp-tab ${activeIndex === i ? "active" : ""}`}
-                onClick={() => setActiveIndex(i)}
+                aria-selected={active === i}
+                className={`exp-tab ${active === i ? "active" : ""}`}
+                onClick={() => setActive(i)}
+                style={{ "--tab-color": color }}
               >
+                <span className="tab-dot" style={{ background: active === i ? color : undefined }} />
                 {company}
               </button>
             ))}
-            {/* Active indicator bar */}
             <div
               className="tab-indicator"
-              style={{ transform: `translateY(${activeIndex * 48}px)` }}
+              style={{ transform: `translateY(${active * 52}px)` }}
             />
           </div>
 
-          {/* ── Detail panel — AnimatePresence enables exit animation ── */}
+          {/* ── Detail panel ────────────────────────── */}
           <div className="exp-panel">
             <AnimatePresence mode="wait">
               <motion.div
-                key={activeIndex}
-                initial={{ opacity: 0, x: 20 }}
+                key={active}
+                initial={{ opacity: 0, x: 24 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
+                exit={{ opacity: 0, x: -16 }}
+                transition={{ duration: 0.22, ease: "easeInOut" }}
               >
                 <div className="exp-header">
-                  <h3 className="exp-role">
-                    {EXPERIENCES[activeIndex].role}{" "}
-                    <a
-                      href={EXPERIENCES[activeIndex].companyUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="exp-company"
-                    >
-                      @ {EXPERIENCES[activeIndex].company}
-                    </a>
-                  </h3>
+                  <div className="exp-title-row">
+                    <h3 className="exp-role">
+                      {EXPERIENCES[active].role}{" "}
+                      <a
+                        href={EXPERIENCES[active].companyUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="exp-company"
+                        style={{ color: EXPERIENCES[active].color }}
+                      >
+                        @ {EXPERIENCES[active].company}
+                      </a>
+                    </h3>
+                    <span className="exp-type-badge">{EXPERIENCES[active].type}</span>
+                  </div>
                   <p className="exp-meta">
-                    <span className="exp-period">{EXPERIENCES[activeIndex].period}</span>
-                    <span className="exp-dot">·</span>
-                    <span>{EXPERIENCES[activeIndex].location}</span>
+                    <span className="meta-icon">📅</span>
+                    {EXPERIENCES[active].period}
+                    <span className="meta-sep">·</span>
+                    <span className="meta-icon">📍</span>
+                    {EXPERIENCES[active].location}
                   </p>
                 </div>
 
                 <ul className="exp-highlights">
-                  {EXPERIENCES[activeIndex].highlights.map((h, i) => (
-                    <li key={i}>
-                      <span className="exp-bullet">▹</span>
+                  {EXPERIENCES[active].highlights.map((h, i) => (
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: 12 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.06, duration: 0.3 }}
+                    >
+                      <span className="exp-bullet" style={{ color: EXPERIENCES[active].color }}>▹</span>
                       {h}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
 
                 <div className="exp-tech-list">
-                  {EXPERIENCES[activeIndex].tech.map((t) => (
+                  {EXPERIENCES[active].tech.map((t) => (
                     <span key={t} className="tech-badge">{t}</span>
                   ))}
                 </div>

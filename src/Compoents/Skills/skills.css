@@ -1,71 +1,135 @@
+/* ─── Groups ────────────────────────────────────────────────── */
+.skills-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.skills-group {}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.group-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.group-title {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 /* ─── Skills Grid ───────────────────────────────────────────── */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
 }
 
+/* ─── Skill Card (3D tilt) ──────────────────────────────────── */
 .skill-card {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 10px;
-  padding: 28px 20px;
+  padding: 24px 16px 18px;
   border-radius: var(--radius);
   cursor: default;
   overflow: hidden;
-  border: 1px solid var(--glass-border);
-  background: var(--bg-card);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  --mx: 50%;
+  --my: 50%;
+}
+
+/* Shine layer follows mouse position */
+.skill-shine {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120px circle at var(--mx) var(--my),
+    rgba(255,255,255,0.06),
+    transparent 60%
+  );
+  pointer-events: none;
+  border-radius: inherit;
 }
 
 .skill-card:hover {
-  border-color: var(--skill-color, var(--accent-gold));
-  box-shadow: 0 0 24px rgba(99, 102, 241, 0.12);
+  border-color: var(--skill-color);
+  box-shadow: 0 0 28px rgba(0,0,0,0.4), 0 0 16px color-mix(in srgb, var(--skill-color) 25%, transparent);
 }
 
 .skill-icon {
-  font-size: 32px;
+  font-size: 30px;
   line-height: 1;
-  filter: drop-shadow(0 0 8px var(--skill-color, transparent));
+  filter: drop-shadow(0 0 6px var(--skill-color, transparent));
+  transition: filter 0.2s;
+}
+
+.skill-card:hover .skill-icon {
+  filter: drop-shadow(0 0 14px var(--skill-color, transparent));
 }
 
 .skill-name {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--text-secondary);
   font-family: var(--font-mono);
   text-align: center;
-  transition: color 0.2s ease;
+  transition: color 0.2s;
 }
 
-.skill-card:hover .skill-name {
-  color: var(--text-primary);
+.skill-card:hover .skill-name { color: var(--text-primary); }
+
+/* Proficiency bar */
+.skill-bar-wrap {
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 2px;
+  overflow: hidden;
 }
 
-/* Subtle radial glow behind the card on hover */
-.skill-glow {
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 1s ease;
+  opacity: 0.7;
+}
+
+/* Corner glow dot */
+.skill-glow-dot {
   position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    color-mix(in srgb, var(--skill-color, #6366f1) 8%, transparent),
-    transparent 70%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
+  bottom: -10px;
+  right: -10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  opacity: 0.12;
+  filter: blur(16px);
+  transition: opacity 0.3s;
 }
 
-.skill-card:hover .skill-glow {
-  opacity: 1;
-}
+.skill-card:hover .skill-glow-dot { opacity: 0.35; }
 
 /* ─── Responsive ────────────────────────────────────────────── */
-@media (max-width: 480px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+@media (max-width: 640px) {
+  .skills-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 400px) {
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
 }
