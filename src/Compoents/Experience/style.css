@@ -105,7 +105,7 @@
   border-radius: 20px;
   background: rgba(99,102,241,0.12);
   border: 1px solid rgba(99,102,241,0.25);
-  color: var(--accent-indigo);
+  color: var(--accent-violet);
   flex-shrink: 0;
   white-space: nowrap;
   margin-top: 4px;
@@ -167,8 +167,8 @@
 }
 
 .tech-badge:hover {
-  border-color: var(--accent-indigo);
-  color: var(--accent-indigo);
+  border-color: var(--accent-violet);
+  color: var(--accent-violet);
   background: rgba(99,102,241,0.08);
 }
 

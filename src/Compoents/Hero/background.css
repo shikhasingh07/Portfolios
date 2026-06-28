@@ -1,0 +1,29 @@
+.bg-dark-base {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: #07020f;
+}
+
+/* Strong center dark mask so text is always readable */
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    /* Heavy center darkening where the name lives */
+    radial-gradient(
+      ellipse 65% 55% at 50% 50%,
+      rgba(7,2,15,0.72) 0%,
+      rgba(7,2,15,0.50) 50%,
+      transparent 100%
+    ),
+    /* Edge vignette */
+    radial-gradient(
+      ellipse 100% 100% at 50% 50%,
+      transparent 35%,
+      rgba(7,2,15,0.80) 80%,
+      rgba(7,2,15,0.95) 100%
+    );
+}

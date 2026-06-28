@@ -1,0 +1,99 @@
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── Project Card ─────────────────────────────────────────── */
+.proj-card {
+  position: relative;
+  overflow: hidden;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: border-color .2s, box-shadow .2s, transform .15s;
+  cursor: default;
+  --accent: #00f5ff;
+}
+
+.proj-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  box-shadow:
+    0 0 30px color-mix(in srgb, var(--accent) 12%, transparent),
+    inset 0 0 30px color-mix(in srgb, var(--accent) 4%, transparent);
+}
+
+/* Mouse-tracking spotlight */
+.proj-spotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    250px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--accent) 14%, transparent),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+}
+.proj-card:hover .proj-spotlight { opacity: 1; }
+
+.proj-top {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 4px;
+}
+
+.proj-id {
+  font-family: var(--font-hud); font-size: 11px; font-weight: 700;
+  color: var(--accent); letter-spacing: 0.1em;
+  text-shadow: 0 0 10px var(--accent);
+}
+
+.proj-gh {
+  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.4);
+  transition: all .2s;
+}
+.proj-gh:hover { color: var(--accent); border-color: var(--accent); }
+.proj-gh svg { width: 14px; height: 14px; }
+
+.proj-tag {
+  font-family: var(--font-mono); font-size: 9px;
+  color: rgba(255,255,255,0.28); letter-spacing: 0.12em; text-transform: uppercase;
+}
+
+.proj-title {
+  font-family: var(--font-hud); font-size: 16px; font-weight: 700;
+  color: rgba(255,255,255,0.88); line-height: 1.25; letter-spacing: 0.02em;
+}
+
+.proj-desc {
+  font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; flex: 1;
+}
+
+.proj-tech {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;
+}
+.proj-tag-item {
+  font-family: var(--font-mono); font-size: 9px;
+  padding: 3px 8px; border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.03);
+  transition: all .2s;
+}
+.proj-card:hover .proj-tag-item {
+  border-color: color-mix(in srgb, var(--accent) 25%, transparent);
+  color: color-mix(in srgb, var(--accent) 80%, white);
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .work-grid { grid-template-columns: 1fr; }
+}

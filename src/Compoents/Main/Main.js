@@ -1,30 +1,20 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar";
-import Hero from "../Hero/Hero";
-import About from "../About/About";
-import Experience from "../Experience/Experience";
-import Projects from "../Projects/Projects";
-import Skills from "../Skills/Skills";
-import Contact from "../Contact/Contact";
+import Navbar   from "../Navbar/Navbar";
+import Background from "../Hero/Background";
+import Hero     from "../Hero/Hero";
+import Overview from "../Overview/Overview";
+import Work     from "../Work/Work";
+import Contact  from "../Contact/Contact";
 
-const StarCanvas = React.lazy(() => import("../Hero/StarCanvas"));
-
-const Main = () => {
-  return (
-    <>
-      <React.Suspense fallback={null}>
-        <StarCanvas />
-      </React.Suspense>
-
-      <Navbar />
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Contact />
-    </>
-  );
-};
+const Main = () => (
+  <>
+    <Background />
+    <Navbar />
+    <Hero />
+    <Overview />
+    <Work />
+    <Contact />
+  </>
+);
 
 export default Main;

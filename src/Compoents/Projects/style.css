@@ -127,8 +127,8 @@
   font-size: 9px;
   padding: 3px 10px;
   border-radius: 20px;
-  background: rgba(99,102,241,0.15);
-  border: 1px solid rgba(99,102,241,0.35);
+  background: rgba(139,92,246,0.15);
+  border: 1px solid rgba(139,92,246,0.35);
   color: var(--accent-indigo);
   letter-spacing: 0.1em;
   text-transform: uppercase;

@@ -3,44 +3,45 @@ import { motion } from "framer-motion";
 import "./about.css";
 
 const STATS = [
-  { value: 5,    suffix: "+",  label: "Years Experience",    color: "var(--accent-indigo)" },
-  { value: 7000, suffix: "+",  label: "Vendors Onboarded",   color: "var(--accent-cyan)"   },
-  { value: 60,   suffix: "%",  label: "Latency Reduced",     color: "var(--accent-purple)" },
-  { value: 20,   suffix: "d",  label: "MentorHub Delivered", color: "var(--accent-gold)"   },
+  { value: 5,  suffix: "+",  label: "Years Exp.",        color: "#8b5cf6" },
+  { value: 7,  suffix: "K+", label: "Vendors Onboarded", color: "#06b6d4" },
+  { value: 60, suffix: "%",  label: "Latency Reduced",   color: "#f43f5e" },
+  { value: 20, suffix: "d",  label: "MVP Delivered",     color: "#f59e0b" },
 ];
 
-const StatCounter = ({ value, suffix, label, color, inView }) => {
+const TECH = [
+  "React.js", "TypeScript", "Three.js", "Redux",
+  "Tailwind CSS", "Web Workers", "AWS", "Micro Frontend",
+  "Flutter", "Generative AI", "Jest", "Cypress",
+];
+
+const HIGHLIGHTS = [
+  { label: "UI Engineer @ Target", since: "Jan 2022 – Present" },
+  { label: "B.Tech CS · Amity University", since: "2020" },
+  { label: "React · TypeScript · Three.js", since: "Core Stack" },
+  { label: "Delhi NCR · Open to work", since: "Actively hiring" },
+];
+
+const Counter = ({ value, suffix, inView }) => {
   const [count, setCount] = useState(0);
-  const hasRun = useRef(false);
+  const ran = useRef(false);
 
   useEffect(() => {
-    if (!inView || hasRun.current) return;
-    hasRun.current = true;
-    const duration = 1400;
+    if (!inView || ran.current) return;
+    ran.current = true;
     const steps = 50;
-    const stepTime = duration / steps;
+    const ms    = 1400 / steps;
     let step = 0;
-    const timer = setInterval(() => {
+    const t = setInterval(() => {
       step++;
-      const progress = step / steps;
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.round(eased * value));
-      if (step >= steps) { setCount(value); clearInterval(timer); }
-    }, stepTime);
-    return () => clearInterval(timer);
+      const ease = 1 - Math.pow(1 - step / steps, 3);
+      setCount(Math.round(ease * value));
+      if (step >= steps) { setCount(value); clearInterval(t); }
+    }, ms);
+    return () => clearInterval(t);
   }, [inView, value]);
 
-  const display = count >= 1000 ? `${(count / 1000).toFixed(count >= 1000 ? 0 : 1)}k` : count;
-
-  return (
-    <div className="stat-card glass-card" style={{ "--stat-color": color }}>
-      <span className="stat-value" style={{ color }}>
-        {display}{suffix}
-      </span>
-      <span className="stat-label">{label}</span>
-      <div className="stat-glow" style={{ background: color }} />
-    </div>
-  );
+  return <>{count}{suffix}</>;
 };
 
 const About = () => {
@@ -51,15 +52,15 @@ const About = () => {
     const el = sectionRef.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect(); } },
-      { threshold: 0.15 }
+      ([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect(); } },
+      { threshold: 0.12 }
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
   return (
-    <section className="section" id="main__about" ref={sectionRef}>
+    <section className="section about-section" id="main__about" ref={sectionRef}>
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -70,69 +71,137 @@ const About = () => {
           <span className="num">01.</span> About Me
         </h2>
 
-        {/* ── Bento grid ─────────────────────────────── */}
-        <div className="bento-grid">
+        {/* ── Main two-column layout ───────────────── */}
+        <div className="about-layout">
 
-          {/* ── Bio card (large) ───────────────────── */}
-          <div className="bento-bio glass-card">
-            <div className="bio-content">
-              <p>
-                I'm a <strong>UI Engineer</strong> passionate about building products at the
-                intersection of design and engineering. With 5+ years of experience, I've
-                shipped high-performance 3D UIs, real-time dashboards, and scalable
-                micro-frontend architectures.
-              </p>
-              <p>
-                At{" "}
-                <a href="https://india.target.com/" target="_blank" rel="noreferrer" className="highlight-link">
-                  Target
-                </a>
-                , I've built tools used by <strong>7,000+ external vendors</strong>, reduced
-                3D rendering latency by <strong>60%</strong>, and launched MentorHub in{" "}
-                <strong>20 days</strong> — now deployed org-wide. Recognized with Target's{" "}
-                <strong>Quarterly Excellence Award</strong>.
-              </p>
-              <p className="bio-tech-intro">Things I work with:</p>
-              <div className="bio-pills">
-                {["JavaScript (ES6+)", "TypeScript", "React.js", "Three.js", "Redux", "Tailwind CSS", "Web Workers", "AWS", "Micro Frontends", "Flutter"].map((s) => (
-                  <span key={s} className="bio-pill">
-                    <span className="pill-dot" />
-                    {s}
-                  </span>
+          {/* Left — stylised profile card (no photo) */}
+          <div className="about-card-col">
+            <div className="profile-card">
+              {/* Gradient orb */}
+              <div className="card-orb card-orb-1" />
+              <div className="card-orb card-orb-2" />
+
+              {/* Initials avatar */}
+              <div className="card-avatar">
+                <span className="avatar-initials">SS</span>
+                <div className="avatar-ring" />
+              </div>
+
+              <div className="card-name">Shikha Singh</div>
+              <div className="card-role">UI Engineer</div>
+
+              <div className="card-avail">
+                <span className="avail-dot" />
+                <span>Available · Delhi NCR</span>
+              </div>
+
+              {/* Highlight list */}
+              <ul className="card-highlights">
+                {HIGHLIGHTS.map(({ label, since }) => (
+                  <li key={label}>
+                    <span className="hl-label">{label}</span>
+                    <span className="hl-since">{since}</span>
+                  </li>
                 ))}
+              </ul>
+
+              {/* CTA row */}
+              <div className="card-links">
+                <a
+                  href="https://github.com/shikhasingh07"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="card-link-btn"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="16" height="16">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                  </svg>
+                  GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/shikha-singh-b027a7179/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="card-link-btn"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="16" height="16">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                    <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                  </svg>
+                  LinkedIn
+                </a>
               </div>
             </div>
           </div>
 
-          {/* ── Photo card ─────────────────────────── */}
-          <div className="bento-photo">
-            <div className="photo-frame glass-card">
-              <img
-                src={require("../../Image/profile.jpeg")}
-                alt="Shikha Singh"
-                className="about-photo"
-              />
-              <div className="photo-overlay" />
-              <div className="photo-badge">
-                <span className="badge-dot" />
-                Open to work
-              </div>
-            </div>
-          </div>
-
-          {/* ── Stat cards ─────────────────────────── */}
-          {STATS.map((s) => (
-            <StatCounter key={s.label} {...s} inView={inView} />
-          ))}
-
-          {/* ── Fun fact card ───────────────────────── */}
-          <div className="bento-fact glass-card">
-            <span className="fact-icon">🚀</span>
-            <p className="fact-text">
-              Built &amp; shipped <strong>MentorHub</strong> — a full-scale internal
-              platform — in under <strong>20 days</strong>, earning Target's Quarterly
-              Excellence Award.
+          {/* Right — content */}
+          <div className="about-content-col">
+            <p className="about-statement">
+              I craft <span className="stmt-highlight">high-performance 3D&nbsp;web
+              experiences</span> that scale to millions.
             </p>
+
+            <p className="about-body">
+              UI Engineer with <strong>5+ years</strong> building at the intersection of
+              engineering and design. At{" "}
+              <a href="https://india.target.com/" target="_blank" rel="noreferrer"
+                 className="inline-link">Target</a>{" "}
+              I've shipped 3D asset platforms serving 7,000+ vendors, an AI-powered
+              reporting tool used by 1,000+ teammates, and built MentorHub —
+              an org-wide platform — in under 20 days.
+            </p>
+
+            <p className="about-body">
+              Currently looking for <strong>frontend / UI engineering roles in Delhi NCR</strong>{" "}
+              where my Three.js, React, and performance expertise can drive real impact.
+            </p>
+
+            {/* Stat row */}
+            <div className="about-stats-row">
+              {STATS.map(({ value, suffix, label, color }) => (
+                <div key={label} className="about-stat" style={{ "--c": color }}>
+                  <span className="astat-num">
+                    <Counter value={value} suffix={suffix} inView={inView} />
+                  </span>
+                  <span className="astat-lbl">{label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Tech */}
+            <div className="about-tech-label">Things I work with —</div>
+            <div className="tech-pills">
+              {TECH.map((t) => (
+                <span key={t} className="tech-pill">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ── Achievement strip ─────────────────────────────── */}
+        <div className="achievement-strip">
+          <div className="ach-card">
+            <span className="ach-icon">🏆</span>
+            <div>
+              <div className="ach-title">Quarterly Excellence Award</div>
+              <div className="ach-sub">Target — MentorHub in 20 days</div>
+            </div>
+          </div>
+          <div className="strip-divider" />
+          <div className="ach-card">
+            <span className="ach-icon">🤖</span>
+            <div>
+              <div className="ach-title">AI-Powered Reporting Platform</div>
+              <div className="ach-sub">1,000+ users · 10–15 reports/week</div>
+            </div>
+          </div>
+          <div className="strip-divider" />
+          <div className="ach-card">
+            <span className="ach-icon">🌐</span>
+            <div>
+              <div className="ach-title">3D Performance Lead</div>
+              <div className="ach-sub">35% package ↓ · 60% latency ↓</div>
+            </div>
           </div>
         </div>
       </motion.div>
