@@ -19,11 +19,11 @@ export const HeroName = () => {
     if (prefersReducedMotion()) return undefined;
     const ctx = gsap.context(() => {
       const scrub = { trigger: "#top", start: "top top", end: "bottom top", scrub: true };
-      gsap.to(".hero-word.one", { xPercent: -14, scrollTrigger: scrub });
-      gsap.to(".hero-word.two", { xPercent: 14, scrollTrigger: scrub });
+      gsap.to(".hero-word.one", { yPercent: -24, scrollTrigger: scrub });
+      gsap.to(".hero-word.two", { xPercent: 12, scrollTrigger: scrub });
     });
 
-    // The letters squish up towards the mouse like soft bubblegum.
+    // The masthead letters swell towards the mouse.
     if (!window.matchMedia("(pointer: fine)").matches) return () => ctx.revert();
     const letters = gsap.utils.toArray(".ltr");
     const tween = { duration: 0.55, ease: "power3.out" };
@@ -57,34 +57,54 @@ export const HeroName = () => {
       <div className="aurora" aria-hidden="true"><i /><i /><i /></div>
       <h1 className="hero-name" aria-label="Shikha Singh">
         <Word text="Shikha" className="one" />
-        <Word text="Singh" className="two" />
+        <span className="hero-word two" aria-hidden="true">
+          <span className="hero-sign" data-hero-in>Singh</span>
+        </span>
       </h1>
     </div>
   );
 };
 
-const Squiggle = () => (
-  <svg className="squiggle" viewBox="0 0 150 70" fill="none" aria-hidden="true">
-    <path
-      d="M4 12c22 34 44 44 66 28 12-9 8-26-4-22-14 5-6 42 74 42m0 0-13-11m13 11-15 7"
-      stroke="currentColor"
-      strokeWidth="2.200"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+// Bar widths for the cover barcode. Decorative only.
+const BARS = [3, 1, 2, 1, 1, 3, 1, 2, 2, 1, 3, 1, 1, 2, 1, 3, 2, 1, 1, 2, 3, 1, 2, 1, 1, 3, 1, 2];
+
+const Barcode = () => {
+  let x = 0;
+  return (
+    <svg className="barcode" viewBox="0 0 96 34" aria-hidden="true">
+      {BARS.map((w, i) => {
+        const bar = i % 2 === 0 ? <rect key={i} x={x} y="0" width={w} height="34" fill="currentColor" /> : null;
+        x += w + 0.4;
+        return bar;
+      })}
+    </svg>
+  );
+};
 
 export const Hero = () => (
   <section className="hero" id="top" data-bg="#EEE4DA">
-    <p className="hero-note left" data-hero-in>
-      hi. glad you wandered in.
-      <small>(click anywhere, petals happen)</small>
+    <p className="cover-strip" data-hero-in aria-hidden="true">
+      <span>Issue N°05</span>
+      <span className="cover-strip-mid">The UI Engineer Edition</span>
+      <span>Delhi NCR · 2026</span>
     </p>
-    <p className="hero-note right" data-hero-in>
-      stay a while, it blooms
-      <Squiggle />
-    </p>
+
+    <div className="cover-lines left" data-hero-in>
+      <p className="cover-kicker">Cover story</p>
+      <p className="cover-big">
+        Pretty, <em>and</em> 60% faster
+      </p>
+      <p className="cover-small">The load-time glow-up at Target</p>
+      <p className="cover-hand">(click anywhere, petals happen)</p>
+    </div>
+
+    <div className="cover-lines right" data-hero-in>
+      <p className="cover-kicker">Inside</p>
+      <p className="cover-big">7,000+ vendors</p>
+      <p className="cover-small">one 3D platform: meet Gargantua</p>
+      <p className="cover-big second">20 days</p>
+      <p className="cover-small">idea to MVP, the MentorHub story</p>
+    </div>
 
     <div className="hero-foot">
       <div className="hero-intro" data-hero-in>
@@ -98,20 +118,26 @@ export const Hero = () => (
           , open to roles in Delhi NCR.
         </p>
       </div>
-      <div className="hero-cta" data-hero-in>
-        <a className="pill solid" href={LINKS.resume} target="_blank" rel="noreferrer">
-          View resume <span aria-hidden="true">↗</span>
-        </a>
-        <a
-          className="pill ghost"
-          href="#contact"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToId("contact");
-          }}
-        >
-          Get in touch
-        </a>
+      <div className="hero-side" data-hero-in>
+        <div className="cover-code" aria-hidden="true">
+          <Barcode />
+          <span>shikhasingh.netlify.app</span>
+        </div>
+        <div className="hero-cta">
+          <a className="pill solid" href={LINKS.resume} target="_blank" rel="noreferrer">
+            View resume <span aria-hidden="true">↗</span>
+          </a>
+          <a
+            className="pill ghost"
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToId("contact");
+            }}
+          >
+            Get in touch
+          </a>
+        </div>
       </div>
     </div>
   </section>

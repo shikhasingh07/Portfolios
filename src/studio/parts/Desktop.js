@@ -101,7 +101,7 @@ const Desktop = () => {
   }, []);
 
   return (
-    <section className="experience" id="experience" data-bg="#DDD1C6">
+    <section className="experience" id="experience" data-folio="The career — p. 02" data-bg="#DDD1C6">
       <header className="sec-head">
         <p className="script">where I've been</p>
         <h2><Rise text="Experience" /></h2>

@@ -20,7 +20,7 @@ import "./studio.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const whenFontsReady = () => {
-  const wanted = ['40px "Bagel Fat One"', '500 20px "DM Mono"'];
+  const wanted = ['500 40px "Bodoni Moda"', '500 20px "DM Mono"'];
   const loads = document.fonts
     ? Promise.all(wanted.map((f) => document.fonts.load(f))).then(() => document.fonts.ready)
     : Promise.resolve();
@@ -208,9 +208,9 @@ const Studio = () => {
         <div className="intro-panel up" />
         <div className="intro-panel down" />
         <div className="intro-mark">
-          <span className="intro-word">blooming</span>
+          <span className="intro-word">the Shikha issue</span>
           <span className="intro-num">
-            <span className="intro-count">0</span>%
+            going to print <span className="intro-count">0</span>%
           </span>
         </div>
       </div>

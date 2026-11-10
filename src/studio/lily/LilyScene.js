@@ -136,7 +136,7 @@ function cardTexture({ t, s, a, b, ink }) {
   let size = 74;
   do {
     size -= 2;
-    g.font = `${size}px "Bagel Fat One", sans-serif`;
+    g.font = `600 ${size}px "Bodoni Moda", serif`;
   } while (g.measureText(t).width > 300 && size > 20);
   g.fillText(t, 190, 208);
 
@@ -555,7 +555,7 @@ export function createLilyScene(canvas, { reduced = false } = {}) {
     const narrow = window.innerWidth < 800;
     const k = narrow ? 0.62 : 1;
 
-    const hero = { x: 0, y: narrow ? 0.14 : 0.06, z: 0, rx: 0, ry: 0, rz: 0, s: k * 0.8, open: 1, arc: 1, rain: 0, melt: 0 };
+    const hero = { x: 0, y: narrow ? 0.14 : 0.06, z: 0, rx: 0, ry: 0, rz: 0, s: k * 0.86, open: 1, arc: 0, rain: 0, melt: 0 };
     const stage = { x: 0, y: 0.1, z: -3.4, rx: -0.12, ry: 0.5, rz: 0, s: 1.3 * k, open: 1, arc: 0, rain: 1, melt: 0 };
     const stageEnd = { ...stage, ry: 2.2, open: 0.74 };
     const farewell = { x: narrow ? 0.55 : -0.56, y: narrow ? -0.4 : 0.02, z: 0, rx: 0.05, ry: 0.35, rz: 0.1, s: 0.95 * k, open: 1, arc: 0, rain: 0.8, melt: 0 };

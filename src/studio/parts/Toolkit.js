@@ -23,10 +23,13 @@ const Toolkit = () => {
   }, []);
 
   return (
-    <section className="stack" id="stack" data-bg="#EFD6D8">
+    <section className="stack" id="stack" data-folio="The toolkit — p. 04" data-bg="#EFD6D8">
       <header className="sec-head">
         <p className="script">what I reach for</p>
         <h2><Rise text="The toolkit" /></h2>
+        <blockquote className="pull">
+          “I care how it looks, <em>and</em> how fast it loads.”
+        </blockquote>
       </header>
 
       <ul className="tools">
