@@ -102,13 +102,13 @@ export const PROJECTS = [
 ];
 
 export const STACK = [
-  { name: "React.js", used: "Gargantua · AI Reporting · MentorHub" },
-  { name: "TypeScript", used: "Gargantua · AI Reporting · MentorHub" },
-  { name: "Three.js", used: "Gargantua" },
-  { name: "Redux", used: "MentorHub · Logistika" },
-  { name: "Tailwind CSS", used: "MentorHub" },
-  { name: "Web Workers", used: "Gargantua" },
-  { name: "AWS", used: "Gargantua" },
-  { name: "Gen AI", used: "AI Reporting" },
-  { name: "Flutter", used: "Elevate App" },
+  { name: "React.js", shade: "Rosé", hex: "#c995a1", finish: "satin", used: "Gargantua · AI Reporting · MentorHub" },
+  { name: "TypeScript", shade: "Taupe", hex: "#b39a8c", finish: "matte", used: "Gargantua · AI Reporting · MentorHub" },
+  { name: "Three.js", shade: "Truffle", hex: "#6b3a3f", finish: "matte", used: "Gargantua" },
+  { name: "Redux", shade: "Rouge", hex: "#8f1d2c", finish: "satin", used: "MentorHub · Logistika" },
+  { name: "Tailwind CSS", shade: "Petal", hex: "#efc9cf", finish: "shimmer", used: "MentorHub" },
+  { name: "Web Workers", shade: "Bronze", hex: "#a9744f", finish: "shimmer", used: "Gargantua" },
+  { name: "AWS", shade: "Sand", hex: "#d8c4ac", finish: "matte", used: "Gargantua" },
+  { name: "Gen AI", shade: "Champagne", hex: "#e6d2b5", finish: "shimmer", used: "AI Reporting" },
+  { name: "Flutter", shade: "Mauve", hex: "#8b4f64", finish: "satin", used: "Elevate App" },
 ];

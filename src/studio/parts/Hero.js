@@ -95,7 +95,7 @@ export const Hero = () => (
         Pretty, <em>and</em> 60% faster
       </p>
       <p className="cover-small">The load-time glow-up at Target</p>
-      <p className="cover-hand">(click anywhere, petals happen)</p>
+      <p className="cover-hand">(click for a kiss, drag for lipstick)</p>
     </div>
 
     <div className="cover-lines right" data-hero-in>

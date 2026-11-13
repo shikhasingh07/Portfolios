@@ -6,6 +6,7 @@ import { createLilyScene } from "./lily/LilyScene";
 import { setLenis, prefersReducedMotion } from "./smooth";
 import MenuBar from "./parts/MenuBar";
 import Cursor from "./parts/Cursor";
+import Lipstick from "./parts/Lipstick";
 import Ribbon from "./parts/Ribbon";
 import Lens from "./parts/Lens";
 import Palette from "./parts/Palette";
@@ -167,7 +168,7 @@ const Studio = () => {
 
     const onBurst = (e) => {
       if (reduced || !scene || e.button !== 0) return;
-      if (e.target.closest && e.target.closest("a, button, .win, .orbit, .dock, .menubar")) return;
+      if (e.target.closest && e.target.closest("a, button, .win, .orbit, .dock, .menubar, .compact")) return;
       scene.burst(e.clientX, e.clientY);
     };
     window.addEventListener("pointerdown", onBurst, { passive: true });
@@ -233,6 +234,7 @@ const Studio = () => {
       </main>
 
       <Dock active={active} />
+      <Lipstick />
       <Cursor />
       <Lens />
       <Palette />
